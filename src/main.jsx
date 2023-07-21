@@ -39,8 +39,16 @@ const notLoggedRouter = createBrowserRouter([
   },
 ]);
 
+const handleToggle = () => {
+  const htmlElement = document.getElementsByTagName("html")[0];
+  htmlElement.classList.toggle("dark");
+};
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <button className="absolute w-fit outline" onClick={handleToggle}>
+      DarkMode
+    </button>
     <RouterProvider router={handleCheckUser() ? loggedRouter : notLoggedRouter} />
   </React.StrictMode>
 );
