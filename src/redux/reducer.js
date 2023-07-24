@@ -11,6 +11,10 @@ function reducer(state = initialState, action) {
     case LOGIN: {
       const coincidence = action.payload === import.meta.env.VITE_LANDING_PASSWORD;
       if (coincidence) {
+        localStorage.setItem(
+          "userHash",
+          JSON.stringify(encryptKey(action.payload, import.meta.env.VITE_HASH_PASSWORD))
+        );
         return {
           ...state,
           user: encryptKey(action.payload, import.meta.env.VITE_HASH_PASSWORD),

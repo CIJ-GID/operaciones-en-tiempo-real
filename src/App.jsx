@@ -38,7 +38,9 @@ const notLoggedRouter = createBrowserRouter([
 ]);
 
 const App = () => {
-  const userHash = useSelector((state) => state.user);
+  const userHash = useSelector(
+    (state) => state.user || JSON.parse(localStorage.getItem("userHash"))
+  );
 
   return (
     <RouterProvider router={handleCheckUser(userHash) ? loggedRouter : notLoggedRouter} />
