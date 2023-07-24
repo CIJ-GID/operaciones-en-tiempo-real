@@ -1,54 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import { Provider } from "react-redux";
+import { Store } from "./redux/store";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-//* Componets
-import Root from "./routes/Root";
-import ErrorPage from "./routes/ErrorPage";
-import StepOne from "./routes/StepOne";
-import StepTwo from "./routes/StepTwo";
-import StepTree from "./routes/StepTree";
-import Presentacion from "./routes/Presentacion";
-import Login from "./routes/Login";
-//* Helpers
-import { handleCheckUser } from "./helpers/index";
-
-//! Root seria la navbar, dentro del "Outlet" se renderizan los children.
-//! Leer docs de react-router-dom para usar loaders y actions dependiendo el proyecto.
-//? https://reactrouter.com/en/main/start/tutorial
-
-const loggedRouter = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    errorElement: <ErrorPage />,
-    children: [
-      { path: "/", element: <StepOne /> }, //* Elegir tipo de datos
-      { path: "/2", element: <StepTwo /> }, //* Elegir tipo de pantalla
-      { path: "/3", element: <StepTree /> }, //* Elegir tema oscuro/claro
-    ],
-  },
-  { path: "/presentacion", element: <Presentacion />, errorElement: <ErrorPage /> },
-]);
-
-const notLoggedRouter = createBrowserRouter([
-  {
-    path: "/",
-    element: <Login />,
-    errorElement: <ErrorPage />,
-  },
-]);
-
-const handleToggle = () => {
-  const htmlElement = document.getElementsByTagName("html")[0];
-  htmlElement.classList.toggle("dark");
-};
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <button className="absolute w-fit outline" onClick={handleToggle}>
-      DarkMode
-    </button>
-    <RouterProvider router={handleCheckUser() ? loggedRouter : notLoggedRouter} />
+    <Provider store={Store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
