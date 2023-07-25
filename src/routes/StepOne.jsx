@@ -1,6 +1,7 @@
 //! TIPO DE OPERACION (Armas, drogas, etc...)
 import React from "react";
 import OptionsCards from "../components/OptionsCards";
+import { useNavigate } from "react-router-dom";
 
 const options = [
   { title: "Armas", description: "Operacion de Armas" },
@@ -9,6 +10,14 @@ const options = [
 ];
 
 const StepOne = () => {
+  const navigate = useNavigate();
+
+  const handleClick = (title) => {
+    console.log("click");
+    localStorage.setItem("type", title.toLowerCase());
+    navigate("/2");
+  };
+
   return (
     <main className="flex h-full  w-full  flex-col">
       <section className=" flex h-20 w-full items-center justify-center border-b-2 border-secondary">
@@ -18,7 +27,11 @@ const StepOne = () => {
       </section>
       <section className="flex h-full w-full flex-wrap items-center justify-center">
         {options.map((o) => (
-          <OptionsCards title={o.title} description={o.description} icon={o.icon} />
+          <OptionsCards
+            title={o.title}
+            description={o.description}
+            handleClick={handleClick}
+          />
         ))}
       </section>
     </main>
