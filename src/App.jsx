@@ -8,7 +8,7 @@ import StepOne from "./routes/StepOne";
 import StepTwo from "./routes/StepTwo";
 import Login from "./routes/Login";
 //* Components
-import Index from "./components/templates/Index.jsx";
+import Index, { loader as indexLoader } from "./components/templates/Index.jsx";
 //* Helpers
 import { handleCheckUser } from "./helpers/index";
 
@@ -27,9 +27,10 @@ const loggedRouter = createBrowserRouter([
     ],
   },
   {
-    path: "/presentacion/:idTemplate",
+    path: "/presentacion/:templateId",
     element: <Index />,
     errorElement: <ErrorPage />,
+    loader: indexLoader,
   },
 ]);
 

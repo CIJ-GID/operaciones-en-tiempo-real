@@ -26,8 +26,9 @@ const StepOne = () => {
         </span>
       </section>
       <section className="flex h-full w-full flex-wrap items-center justify-center">
-        {options.map((o) => (
+        {options.map((o, index) => (
           <OptionsCards
+            key={index}
             title={o.title}
             description={o.description}
             handleClick={handleClick}

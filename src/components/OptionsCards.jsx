@@ -1,10 +1,10 @@
 import React from "react";
 
-const OptionsCards = ({ title, description, handleClick }) => {
+const OptionsCards = ({ id, title, description, handleClick }) => {
   return (
     <div
       className="hover: mx-12 h-60 flex-1 cursor-pointer rounded-md border-2 border-secondary bg-base/30 transition hover:bg-base/40"
-      onClick={() => handleClick(title)}
+      onClick={() => handleClick(title, id)}
     >
       <h1 className="mt-4 text-center underline">{title}</h1>
       <p className="p-4 text-center">{description}</p>

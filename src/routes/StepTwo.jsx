@@ -5,14 +5,17 @@ import { useNavigate } from "react-router-dom";
 
 const options = [
   {
+    id: 1,
     title: "Plantilla 1",
     description: "descripcion sobre la plantilla",
   },
   {
+    id: 2,
     title: "Plantilla 2",
     description: "descripcion sobre la plantilla",
   },
   {
+    id: 3,
     title: "Plantilla 3",
     description: "descripcion sobre la plantilla",
   },
@@ -21,9 +24,9 @@ const options = [
 const StepTwo = () => {
   const navigate = useNavigate();
 
-  const handleClick = (title) => {
+  const handleClick = (title, id) => {
     localStorage.setItem("plantilla", title.toLowerCase());
-    navigate("/");
+    navigate(`/presentacion/${id}`);
   };
 
   return (
@@ -34,6 +37,8 @@ const StepTwo = () => {
       <section className="flex h-full w-full flex-wrap items-center justify-center">
         {options.map((o) => (
           <OptionsCards
+            key={o.id}
+            id={o.id}
             title={o.title}
             description={o.description}
             handleClick={handleClick}
