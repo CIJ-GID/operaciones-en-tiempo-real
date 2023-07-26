@@ -1,6 +1,6 @@
 //! TIPO DE OPERACION (Armas, drogas, etc...)
 import React from "react";
-import OptionsCards from "../components/OptionsCards";
+import OptionsCards from "../../components/OptionsCards";
 import { useNavigate } from "react-router-dom";
 
 const options = [

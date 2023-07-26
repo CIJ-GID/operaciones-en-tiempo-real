@@ -4,11 +4,15 @@ import { useSelector } from "react-redux";
 //* Routes
 import Root from "./routes/Root";
 import ErrorPage from "./routes/ErrorPage";
-import StepOne from "./routes/StepOne";
-import StepTwo from "./routes/StepTwo";
+import StepOne from "./routes/steps/StepOne";
+import StepTwo from "./routes/steps/StepTwo";
 import Login from "./routes/Login";
-//* Components
-import Index, { loader as indexLoader } from "./components/templates/Index.jsx";
+//* Templates
+import Index from "./routes/templates/Index.jsx";
+import Template1 from "./routes/templates/Template1.jsx";
+import Template2 from "./routes/templates/Template2.jsx";
+import Template3 from "./routes/templates/Template3.jsx";
+
 //* Helpers
 import { handleCheckUser } from "./helpers/index";
 
@@ -22,15 +26,19 @@ const loggedRouter = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "/", element: <StepOne /> }, //* Elegir tipo de datos
-      { path: "/2", element: <StepTwo /> }, //* Elegir tipo de pantalla
+      { path: "/", element: <StepOne /> },
+      { path: "/2", element: <StepTwo /> },
     ],
   },
   {
-    path: "/presentacion/:templateId",
+    path: "/presentacion",
     element: <Index />,
     errorElement: <ErrorPage />,
-    loader: indexLoader,
+    children: [
+      { path: "/presentacion/1", element: <Template1 /> },
+      { path: "/presentacion/2", element: <Template2 /> },
+      { path: "/presentacion/3", element: <Template3 /> },
+    ],
   },
 ]);
 
