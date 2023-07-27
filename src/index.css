@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply h-screen w-screen overflow-y-hidden;
+    @apply h-screen w-screen md:overflow-x-hidden;
   }
 
   h1 {
@@ -12,12 +12,11 @@
   }
 
   ::-webkit-scrollbar {
-    width: 5px;
+    @apply w-[3px] bg-containers;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #fff;
-    border-radius: 5px;
+    @apply rounded-md bg-primary;
   }
 
   input[type="number"]::-webkit-inner-spin-button,
@@ -29,4 +28,11 @@
 
 @layer components {
   /*! ACA VAN LOS ESTILOS GLOBALES DE TAILWIND CON @APPLY */
+  .templateSections {
+    @apply flex min-h-[200px] items-center justify-center rounded-md bg-containers shadow-xl;
+  }
+
+  .enfasisBorders {
+    @apply border-2 border-enfasis/30;
+  }
 }

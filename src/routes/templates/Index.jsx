@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 const Index = () => {
   return (
-    <main className="h-screen w-screen bg-base dark:bg-dark ">
+    <main className="h-screen w-screen bg-base">
       <Outlet />
     </main>
   );
