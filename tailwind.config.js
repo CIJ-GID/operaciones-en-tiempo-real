@@ -15,6 +15,13 @@ export default {
       gray: colors.gray,
       slate: colors.slate,
     },
+    screens: {
+      xs: "200px", //Celular
+      sm: "350px", // Celular M/L
+      md: "640px", // Tablet
+      xl: "1024px", // Laptop
+      "2xl": "2000px", // Desktop
+    },
     extend: {},
   },
   plugins: [],
