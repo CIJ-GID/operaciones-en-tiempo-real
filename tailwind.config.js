@@ -23,6 +23,9 @@ export default {
       xl: "1024px", // Laptop
       "2xl": "2000px", // Desktop
     },
+    fontFamily: {
+      anton: ["Anton", "sans-serif"],
+    },
     extend: {},
   },
   plugins: [],
