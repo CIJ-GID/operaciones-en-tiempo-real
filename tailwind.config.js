@@ -10,6 +10,7 @@ export default {
       primary: "#006473",
       enfasis: "#005F71",
       containers: "#262626",
+      success: "#287300",
       white: colors.white,
       black: colors.black,
       gray: colors.gray,
