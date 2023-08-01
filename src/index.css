@@ -35,4 +35,8 @@
   .enfasisBorders {
     @apply border-2 border-enfasis/30;
   }
+
+  .swiperSlide {
+    @apply h-full w-full bg-primary;
+  }
 }

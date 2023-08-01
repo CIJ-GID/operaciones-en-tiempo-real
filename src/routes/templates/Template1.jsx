@@ -8,6 +8,7 @@ import GeneralInfo from "../../components/GeneralInfo";
 import map from "../../assets/MAPA.mp4";
 import logoCij from "../../assets/logoCij.png";
 import logoMpf from "../../assets/logoMpf.png";
+import SwiperComponent from "../../components/Swiper";
 
 const Template1 = () => {
   return (
@@ -57,7 +58,7 @@ const Template1 = () => {
           </div>
         </section>
         <section className="templateSections enfasisBorders sm:col-span-2 md:col-span-3 xl:col-span-2 xl:row-span-2 2xl:col-span-1 2xl:row-span-6">
-          <BarChartComponent />
+          <SwiperComponent />
         </section>
         <section className="templateSections enfasisBorders hidden 2xl:col-span-6 2xl:row-span-1 2xl:flex">
           <PieChartComponent />
