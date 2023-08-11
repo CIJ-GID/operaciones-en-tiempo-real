@@ -51,10 +51,10 @@ const TableComponent = () => {
           {TABLE_ROWS.map(({ tipo, cant }) => (
             <tr key={tipo} className="even:bg-white/10 ">
               <td className="w-full p-2">
-                <span className="font-bold text-gray-300">{tipo}</span>
+                <span className="font-bold text-gray-300 sm:text-sm">{tipo}</span>
               </td>
               <td className="w-full p-2">
-                <span className="font-bold text-gray-300 ">{cant}</span>
+                <span className="font-bold text-gray-300 sm:text-sm">{cant}</span>
               </td>
             </tr>
           ))}

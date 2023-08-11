@@ -1,6 +1,8 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import img from "../assets/fuerzas/1.png";
+import img2 from "../assets/fuerzas/2.png";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -13,7 +15,7 @@ const SwiperComponent = () => {
         slidesPerView={4}
         spaceBetween={30}
         autoplay={{
-          delay: 2500,
+          delay: 1000,
           disableOnInteraction: false,
         }}
         loop={true}
@@ -21,7 +23,40 @@ const SwiperComponent = () => {
         className="h-full w-full"
       >
         <SwiperSlide className="swiperSlide">
-          <img src={"../assets/fuerzas/1.png"} height={"100%"} />
+          <img src={img} height={"100%"} />
+        </SwiperSlide>
+        <SwiperSlide className="swiperSlide">
+          <img src={img2} height={"100%"} />
+        </SwiperSlide>
+        <SwiperSlide className="swiperSlide">
+          <img src={img} height={"100%"} />
+        </SwiperSlide>
+        <SwiperSlide className="swiperSlide">
+          <img src={img2} height={"100%"} />
+        </SwiperSlide>
+        <SwiperSlide className="swiperSlide">
+          <img src={img} height={"100%"} />
+        </SwiperSlide>
+        <SwiperSlide className="swiperSlide">
+          <img src={img2} height={"100%"} />
+        </SwiperSlide>
+        <SwiperSlide className="swiperSlide">
+          <img src={img} height={"100%"} />
+        </SwiperSlide>
+        <SwiperSlide className="swiperSlide">
+          <img src={img2} height={"100%"} />
+        </SwiperSlide>
+        <SwiperSlide className="swiperSlide">
+          <img src={img} height={"100%"} />
+        </SwiperSlide>
+        <SwiperSlide className="swiperSlide">
+          <img src={img2} height={"100%"} />
+        </SwiperSlide>
+        <SwiperSlide className="swiperSlide">
+          <img src={img} height={"100%"} />
+        </SwiperSlide>
+        <SwiperSlide className="swiperSlide">
+          <img src={img2} height={"100%"} />
         </SwiperSlide>
       </Swiper>
     </>

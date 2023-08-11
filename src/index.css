@@ -37,6 +37,6 @@
   }
 
   .swiperSlide {
-    @apply h-full w-full bg-primary;
+    @apply flex h-full w-full items-center;
   }
 }
