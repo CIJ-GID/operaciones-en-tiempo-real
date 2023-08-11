@@ -28,7 +28,7 @@ const PieChartComponent = () => {
             position="outside"
             dataKey="name"
             offset={10}
-            className="text-sm font-extralight"
+            className="text-sm font-extralight 2xl:text-2xl"
           />
         </Pie>
       </PieChart>

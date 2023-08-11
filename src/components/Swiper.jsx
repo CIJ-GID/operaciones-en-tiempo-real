@@ -23,40 +23,40 @@ const SwiperComponent = () => {
         className="h-full w-full"
       >
         <SwiperSlide className="swiperSlide">
-          <img src={img} height={"100%"} />
+          <img src={img} className="w-[100%] 2xl:h-[80%] 2xl:w-auto" />
         </SwiperSlide>
         <SwiperSlide className="swiperSlide">
-          <img src={img2} height={"100%"} />
+          <img src={img2} className="w-[100%] 2xl:h-[80%] 2xl:w-auto" />
         </SwiperSlide>
         <SwiperSlide className="swiperSlide">
-          <img src={img} height={"100%"} />
+          <img src={img} className="w-[100%] 2xl:h-[80%] 2xl:w-auto" />
         </SwiperSlide>
         <SwiperSlide className="swiperSlide">
-          <img src={img2} height={"100%"} />
+          <img src={img2} className="w-[100%] 2xl:h-[80%] 2xl:w-auto" />
         </SwiperSlide>
         <SwiperSlide className="swiperSlide">
-          <img src={img} height={"100%"} />
+          <img src={img} className="w-[100%] 2xl:h-[80%] 2xl:w-auto" />
         </SwiperSlide>
         <SwiperSlide className="swiperSlide">
-          <img src={img2} height={"100%"} />
+          <img src={img2} className="w-[100%] 2xl:h-[80%] 2xl:w-auto" />
         </SwiperSlide>
         <SwiperSlide className="swiperSlide">
-          <img src={img} height={"100%"} />
+          <img src={img} className="w-[100%] 2xl:h-[80%] 2xl:w-auto" />
         </SwiperSlide>
         <SwiperSlide className="swiperSlide">
-          <img src={img2} height={"100%"} />
+          <img src={img2} className="w-[100%] 2xl:h-[80%] 2xl:w-auto" />
         </SwiperSlide>
         <SwiperSlide className="swiperSlide">
-          <img src={img} height={"100%"} />
+          <img src={img} className="w-[100%] 2xl:h-[80%] 2xl:w-auto" />
         </SwiperSlide>
         <SwiperSlide className="swiperSlide">
-          <img src={img2} height={"100%"} />
+          <img src={img2} className="w-[100%] 2xl:h-[80%] 2xl:w-auto" />
         </SwiperSlide>
         <SwiperSlide className="swiperSlide">
-          <img src={img} height={"100%"} />
+          <img src={img} className="w-[100%] 2xl:h-[80%] 2xl:w-auto" />
         </SwiperSlide>
         <SwiperSlide className="swiperSlide">
-          <img src={img2} height={"100%"} />
+          <img src={img2} className="w-[100%] 2xl:h-[80%] 2xl:w-auto" />
         </SwiperSlide>
       </Swiper>
     </>

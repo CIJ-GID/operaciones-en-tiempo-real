@@ -37,7 +37,7 @@ const data = [
 const RadarChartComponent = () => {
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <RadarChart outerRadius="80%" data={data}>
+      <RadarChart outerRadius="80%" data={data} className="2xl:text-3xl">
         <PolarGrid />
         <PolarAngleAxis dataKey="subject" />
         <Radar dataKey="A" className="fill-primary/70" />

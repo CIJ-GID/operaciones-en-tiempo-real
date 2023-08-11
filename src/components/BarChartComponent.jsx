@@ -48,7 +48,7 @@ const data = [
 const BarChartComponent = () => {
   return (
     <ResponsiveContainer width={"100%"} height={"100%"}>
-      <BarChart width={730} height={250} data={data}>
+      <BarChart width={730} height={250} data={data} className="2xl:text-4xl">
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <Tooltip />

@@ -49,12 +49,16 @@ const TableComponent = () => {
       <table className="flex h-full w-full items-center justify-center text-left">
         <tbody className="w-full rounded-md border-2 border-base">
           {TABLE_ROWS.map(({ tipo, cant }) => (
-            <tr key={tipo} className="even:bg-white/10 ">
-              <td className="w-full p-2">
-                <span className="font-bold text-gray-300 sm:text-sm">{tipo}</span>
+            <tr key={tipo} className="even:bg-white/10 2xl:h-24">
+              <td className="w-full p-2 2xl:p-4 ">
+                <span className="font-bold text-gray-300 sm:text-sm 2xl:text-4xl">
+                  {tipo}
+                </span>
               </td>
               <td className="w-full p-2">
-                <span className="font-bold text-gray-300 sm:text-sm">{cant}</span>
+                <span className="font-bold text-gray-300 sm:text-sm 2xl:text-4xl">
+                  {cant}
+                </span>
               </td>
             </tr>
           ))}
