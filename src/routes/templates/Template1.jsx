@@ -13,7 +13,7 @@ import SwiperComponent from "../../components/Swiper";
 const Template1 = () => {
   return (
     <>
-      <section className="flex h-[8%] w-full items-center bg-enfasis p-2 font-anton text-3xl text-white shadow-xl sm:justify-center md:justify-between">
+      <section className="flex h-[8%] w-full items-center bg-enfasis p-2 px-8 font-anton text-3xl text-white shadow-xl sm:justify-center md:justify-between">
         <img src={logoCij} className="hidden h-full md:flex 2xl:h-[80%]" />
         <span className="2xl:text-8xl">Operacion X</span>
         <img src={logoMpf} className="hidden h-full md:flex 2xl:h-[80%]" />
@@ -32,7 +32,7 @@ const Template1 = () => {
         <section className="templateSections enfasisBorders sm:hidden xl:flex 2xl:col-span-1 2xl:row-span-1">
           <PieChartComponent />
         </section>
-        <section className="templateSections enfasisBorders col-span-2 md:col-span-1 xl:row-span-2 2xl:row-span-5">
+        <section className="templateSections enfasisBorders col-span-2 md:col-span-1 xl:row-span-2 2xl:col-span-2 2xl:row-span-4">
           <TableComponent />
         </section>
         <section className="templateSections enfasisBorders sm:col-span-1 sm:row-start-2 md:col-start-2 xl:row-span-1 2xl:col-span-2 2xl:col-start-3 2xl:row-span-2">
@@ -41,14 +41,14 @@ const Template1 = () => {
         <section className="templateSections enfasisBorders sm:col-start-2 sm:row-start-2 md:col-start-3 xl:row-span-1 2xl:col-span-2 2xl:col-start-3 2xl:row-span-2">
           <GeneralInfo />
         </section>
-        <section className="templateSections enfasisBorders p-0 sm:hidden xl:row-span-2 xl:flex 2xl:col-start-6 2xl:row-span-5 2xl:row-start-2">
+        <section className="templateSections enfasisBorders p-0 sm:hidden xl:row-span-2 xl:flex 2xl:col-span-2 2xl:col-start-5 2xl:row-span-4 2xl:row-start-2">
           <div className="h-full w-full">
             <video loop autoPlay className="h-full w-full rounded-md object-cover">
               <source src={map} type="video/mp4" />
             </video>
           </div>
         </section>
-        <section className="templateSections enfasisBorders sm:col-span-2 sm:row-span-1 md:col-span-3 xl:col-span-2 xl:row-span-1 2xl:col-span-4 2xl:col-start-2 2xl:row-span-1">
+        <section className="templateSections enfasisBorders sm:col-span-2 sm:row-span-1 md:col-span-3 xl:col-span-2 xl:row-span-1  2xl:col-span-6 2xl:row-span-1 2xl:!min-h-[50px] ">
           <SwiperComponent />
         </section>
         <section className="templateSections enfasisBorders hidden  md:row-start-3 md:flex xl:hidden">
