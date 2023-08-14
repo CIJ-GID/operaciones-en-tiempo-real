@@ -23,8 +23,6 @@ const SwiperComponent = () => {
     };
   });
 
-  console.log(windowWidth);
-
   return (
     <>
       <Swiper
