@@ -56,12 +56,3 @@ export function updateData(snap) {
     });
   };
 }
-
-export function login(password) {
-  return function (dispatch) {
-    return dispatch({
-      type: LOGIN,
-      payload: password,
-    });
-  };
-}

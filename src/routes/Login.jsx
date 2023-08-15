@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logoCij from "../assets/logoCij.png";
 import { useDispatch } from "react-redux";
-import { login } from "../redux/actions";
+import { validateUser } from "../redux/reducers/loginSlice";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -10,13 +10,13 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(login(password));
+    dispatch(validateUser(password));
   };
 
   return (
     <main
       id="container"
-      className="flex h-screen w-screen items-center justify-center bg-secondary/50 dark:bg-secondary"
+      className="bg-secondary/50 dark:bg-secondary flex h-screen w-screen items-center justify-center"
     >
       <img src={logoCij} className="absolute top-0 mt-14" />
       <section
@@ -25,9 +25,9 @@ const Login = () => {
       >
         <form
           onSubmit={handleSubmit}
-          className="flex h-full w-[40%] flex-col items-center justify-center "
+          className="flex h-full w-[40%] flex-col items-center justify-center"
         >
-          <label className="text-md self-start text-base">Contraseña</label>
+          <label className="text-md self-start text-white">Contraseña</label>
           <input
             className="focus: h-12 w-full rounded-sm border-none pl-4 outline-none"
             type="password"
