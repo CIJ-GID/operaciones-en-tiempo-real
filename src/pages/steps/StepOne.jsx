@@ -20,7 +20,7 @@ const StepOne = () => {
 
   return (
     <main className="flex h-full  w-full  flex-col">
-      <section className=" flex h-20 w-full items-center justify-center border-b-2 border-secondary">
+      <section className=" border-secondary flex h-20 w-full items-center justify-center border-b-2">
         <span className="!text-2xl text-base font-bold">
           Seleccione tipo de Operacion
         </span>

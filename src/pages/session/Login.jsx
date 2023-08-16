@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import logoCij from "../assets/logoCij.png";
+import logoCij from "../../assets/logoCij.png";
 import { useDispatch } from "react-redux";
-import { validateUser } from "../redux/reducers/loginSlice";
+import { validateUser } from "../../redux/reducers/loginSlice";
 
 const Login = () => {
   const dispatch = useDispatch();
