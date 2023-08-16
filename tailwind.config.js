@@ -24,7 +24,7 @@ export default {
       "2xl": "2000px", // Desktop
     },
     fontFamily: {
-      anton: ["Anton", "sans-serif"],
+      primary: ["Quicksand", "sans-serif"],
     },
     extend: {},
   },

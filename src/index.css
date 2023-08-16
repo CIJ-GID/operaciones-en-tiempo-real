@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+  *,
+  *::after,
+  *::before {
+    @apply font-primary font-medium;
+  }
+
   body {
     @apply h-screen w-screen md:overflow-x-hidden;
   }
