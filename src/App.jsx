@@ -12,13 +12,8 @@ import Index from "./routes/templates/Index.jsx";
 import Template1 from "./routes/templates/Template1.jsx";
 import Template2 from "./routes/templates/Template2.jsx";
 import Template3 from "./routes/templates/Template3.jsx";
-
 //* Helpers
 import { handleCheckUser } from "./helpers/index";
-
-//! Root seria la navbar, dentro del "Outlet" se renderizan los children.
-//! Leer docs de react-router-dom para usar loaders y actions dependiendo el proyecto.
-//? https://reactrouter.com/en/main/start/tutorial
 
 const loggedRouter = createBrowserRouter([
   {
@@ -55,9 +50,9 @@ const App = () => {
     (state) => state.user || JSON.parse(localStorage.getItem("userHash"))
   );
 
-  return (
-    <RouterProvider router={handleCheckUser(userHash) ? loggedRouter : notLoggedRouter} />
-  );
+  const selectedRouter = handleCheckUser(userHash) ? loggedRouter : notLoggedRouter;
+
+  return <RouterProvider router={selectedRouter} />;
 };
 
 export default App;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PieChartComponent from "../../components/PieChartComponent";
 import CircularProgress from "../../components/CircularProgress";
 import BarChartComponent from "../../components/BarChartComponent";
@@ -9,8 +9,23 @@ import map from "../../assets/MAPA.mp4";
 import logoCij from "../../assets/logoCij.png";
 import logoMpf from "../../assets/logoMpf.png";
 import SwiperComponent from "../../components/Swiper";
+import { onSnapshot, collection } from "firebase/firestore";
+import { db } from "../../database/db";
+import { useDispatch } from "react-redux";
+import { updateData } from "../../redux/reducers/dataSlice";
 
 const Template1 = () => {
+  const dispatch = useDispatch();
+
+  //! Logica para actualizar datos en tiempo real
+  onSnapshot(collection(db, import.meta.env.VITE_FIREBASE_DB_NAME), (snap) => {
+    const data = [];
+    snap.forEach((doc) => {
+      data.push(doc.data());
+    });
+    dispatch(updateData(data));
+  });
+
   return (
     <>
       <section className="flex h-[8%] w-full items-center bg-enfasis p-2 px-8 font-anton text-3xl text-white shadow-xl sm:justify-center md:justify-between">

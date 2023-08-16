@@ -1,8 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
-console.log("hola");
-
 const firebaseConfig = {
   apiKey: "AIzaSyCctbuOWWbJJCh-WYTzw6axdnPzBPL3lx0",
   authDomain: "mpf-allanamientos-realtime.firebaseapp.com",
@@ -14,4 +12,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+const db = getFirestore(app);
+
+export { db };

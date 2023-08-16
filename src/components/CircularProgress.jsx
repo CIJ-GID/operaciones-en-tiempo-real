@@ -1,13 +1,18 @@
 import React from "react";
 import "react-circular-progressbar/dist/styles.css";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import { useSelector } from "react-redux";
 
 const CircularProgress = () => {
+  const porcentajeObjetivosCompletos = useSelector(
+    (state) => state.data.porcentajeObjetivosCompletos
+  );
+
   return (
     <div className="flex h-full w-full">
       <CircularProgressbar
-        value={30}
-        text={"30%"}
+        value={porcentajeObjetivosCompletos}
+        text={`${porcentajeObjetivosCompletos}%`}
         strokeWidth={8}
         styles={buildStyles({
           pathColor: 50 > 85 ? "#262626" : "#005F71",
