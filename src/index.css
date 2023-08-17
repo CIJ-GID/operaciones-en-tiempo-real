@@ -3,18 +3,26 @@
 @tailwind utilities;
 
 @layer base {
-  *,
+  /* *,
   *::after,
   *::before {
-    @apply font-primary font-medium;
-  }
+    @apply font-display font-medium;
+  } */
 
   body {
-    @apply h-screen w-screen md:overflow-x-hidden;
+    @apply h-screen w-screen bg-base md:overflow-x-hidden;
   }
 
   h1 {
-    @apply text-2xl text-black;
+    @apply font-display text-4xl font-bold tracking-wider text-white;
+  }
+
+  input {
+    @apply rounded-md border-2 border-primary/50 bg-containers px-4 py-2 text-center font-display text-white;
+  }
+
+  strong {
+    @apply pointer-events-none;
   }
 
   ::-webkit-scrollbar {
@@ -44,5 +52,9 @@
 
   .swiperSlide {
     @apply flex h-full w-full items-center justify-center;
+  }
+
+  .loginButtons {
+    @apply w-48 rounded-md border-2 bg-white py-2 font-display text-base text-sm transition hover:cursor-pointer hover:border-primary hover:bg-containers hover:text-white/50;
   }
 }

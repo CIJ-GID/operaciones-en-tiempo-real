@@ -8,13 +8,22 @@ const loginSlice = createSlice({
   },
   reducers: {
     validateUser: (state, action) => {
-      const coincidence = action.payload === import.meta.env.VITE_LANDING_PASSWORD;
+      const { password, adminOrInvite } = action.payload;
+      const landingPass =
+        adminOrInvite === "admin"
+          ? import.meta.env.VITE_LANDING_ADMIN_PASSWORD
+          : import.meta.env.VITE_LANDING_INVITE_PASSWORD;
+
+      const coincidence = password.toUpperCase() === landingPass;
+
       if (coincidence) {
         localStorage.setItem(
           "userHash",
-          JSON.stringify(encryptKey(action.payload, import.meta.env.VITE_HASH_PASSWORD))
+          JSON.stringify(encryptKey(password, import.meta.env.VITE_HASH_PASSWORD))
         );
-        state.user = encryptKey(action.payload, import.meta.env.VITE_HASH_PASSWORD);
+        state.user = encryptKey(password, import.meta.env.VITE_HASH_PASSWORD);
+      } else {
+        alert("Contraseña incorrecta!");
       }
     },
   },

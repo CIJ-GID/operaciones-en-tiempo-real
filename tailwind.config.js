@@ -25,6 +25,10 @@ export default {
     },
     fontFamily: {
       primary: ["Quicksand", "sans-serif"],
+      display: ["Oxanium", "cursive"],
+    },
+    transitionDuration: {
+      DEFAULT: "300ms",
     },
     extend: {},
   },

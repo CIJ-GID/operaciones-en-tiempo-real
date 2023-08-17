@@ -14,9 +14,15 @@ export function decryptKey(encryptedKey, secret) {
 
 export const handleCheckUser = (hash) => {
   if (hash) {
+    const userType = localStorage.getItem("userType");
+    const landingPass =
+      userType === "admin"
+        ? import.meta.env.VITE_LANDING_ADMIN_PASSWORD
+        : import.meta.env.VITE_LANDING_INVITE_PASSWORD;
+
     const decrypted = decryptKey(hash, import.meta.env.VITE_HASH_PASSWORD);
 
-    if (decrypted === import.meta.env.VITE_LANDING_PASSWORD) {
+    if (decrypted.toUpperCase() === landingPass) {
       return true;
     } else {
       return false;
