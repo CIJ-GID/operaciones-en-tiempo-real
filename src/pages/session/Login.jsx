@@ -26,7 +26,7 @@ const Login = () => {
       <img src={logoCij} className="absolute top-0 mt-14" />
       <section
         id="loginModal"
-        className="flex h-[50%] w-[50%] flex-col items-center justify-around rounded-md border-4 border-primary/50 bg-primary/10 p-8 shadow-2xl"
+        className="patternBg flex h-[50%] w-[50%] flex-col items-center justify-around rounded-md border-4 border-primary  p-8 shadow-2xl"
       >
         {!adminOrInvite && (
           <section className="flex w-full justify-around">
