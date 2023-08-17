@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 @layer base {
-  /* *,
+  *,
   *::after,
   *::before {
-    @apply font-display font-medium;
-  } */
+    @apply font-display tracking-wide;
+  }
 
   body {
     @apply h-screen w-screen bg-base md:overflow-x-hidden;

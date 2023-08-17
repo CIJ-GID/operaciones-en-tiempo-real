@@ -24,7 +24,6 @@ export default {
       "2xl": "2000px", // Desktop
     },
     fontFamily: {
-      primary: ["Quicksand", "sans-serif"],
       display: ["Oxanium", "cursive"],
     },
     transitionDuration: {
