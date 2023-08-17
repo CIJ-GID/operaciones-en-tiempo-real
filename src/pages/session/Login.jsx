@@ -37,7 +37,7 @@ const Login = () => {
       >
         {!adminOrInvite && (
           <motion.section
-            initial={{ opacity: 0, x: 500 }}
+            initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ type: "spring", duration: 1 }}
             className="flex w-full justify-around"
@@ -61,7 +61,7 @@ const Login = () => {
 
         {adminOrInvite && (
           <motion.section
-            initial={{ opacity: 0, x: 500 }}
+            initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ type: "spring", duration: 1 }}
             className="flex h-full w-full flex-col"
