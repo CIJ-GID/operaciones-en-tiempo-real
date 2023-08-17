@@ -33,7 +33,9 @@ const Login = () => {
       <img src={logoCij} className="absolute top-0 mt-14" />
       <section
         id="loginModal"
-        className="patternBg flex h-[50%] w-[50%] flex-col items-center justify-around overflow-hidden rounded-md border-4  border-primary p-8 shadow-2xl"
+        className={`${
+          adminOrInvite === "admin" ? "toolsBg" : "hexagonsBg"
+        } flex h-[50%] w-[50%] flex-col items-center justify-around overflow-hidden rounded-md border-4  border-primary p-8 shadow-2xl`}
       >
         {!adminOrInvite && (
           <motion.section
