@@ -3,6 +3,7 @@ import logoCij from "../../assets/logoCij.png";
 import { useDispatch } from "react-redux";
 import { validateUser } from "../../redux/reducers/loginSlice";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
+import { motion } from "framer-motion";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -22,14 +23,25 @@ const Login = () => {
   };
 
   return (
-    <main id="container" className="flex h-screen w-screen items-center justify-center">
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ type: "tween", duration: 0.5 }}
+      id="container"
+      className="flex h-screen w-screen items-center justify-center"
+    >
       <img src={logoCij} className="absolute top-0 mt-14" />
       <section
         id="loginModal"
-        className="patternBg flex h-[50%] w-[50%] flex-col items-center justify-around rounded-md border-4 border-primary  p-8 shadow-2xl"
+        className="patternBg flex h-[50%] w-[50%] flex-col items-center justify-around overflow-hidden rounded-md border-4  border-primary p-8 shadow-2xl"
       >
         {!adminOrInvite && (
-          <section className="flex w-full justify-around">
+          <motion.section
+            initial={{ opacity: 0, x: 500 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ type: "spring", duration: 1 }}
+            className="flex w-full justify-around"
+          >
             <button
               className="loginButtons w-52 py-4 text-xl"
               onClick={(e) => handleClick(e.target.value)}
@@ -44,11 +56,16 @@ const Login = () => {
             >
               ENTRAR COMO <strong>INVITADO</strong>
             </button>
-          </section>
+          </motion.section>
         )}
 
         {adminOrInvite && (
-          <section className="flex h-full w-full flex-col">
+          <motion.section
+            initial={{ opacity: 0, x: 500 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ type: "spring", duration: 1 }}
+            className="flex h-full w-full flex-col"
+          >
             <button
               className="loginButtons w-24 font-bold"
               onClick={() => setAdminOrInvite(false)}
@@ -90,10 +107,10 @@ const Login = () => {
                 </div>
               </div>
             </form>
-          </section>
+          </motion.section>
         )}
       </section>
-    </main>
+    </motion.main>
   );
 };
 
