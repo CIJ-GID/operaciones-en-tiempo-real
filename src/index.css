@@ -21,6 +21,10 @@
     @apply font-display text-3xl  tracking-wider text-white;
   }
 
+  h3 {
+    @apply font-display text-xl  tracking-wider text-white;
+  }
+
   input {
     @apply rounded-md border-2 border-primary/50 bg-containers px-4 py-2 text-center font-display text-white;
   }

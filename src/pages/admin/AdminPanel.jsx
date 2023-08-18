@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import logoCij from "../../assets/logoCij.png";
+import logoMpf from "../../assets/logoMpf.png";
 
 export const AdminPanel = () => {
   const [operacion, setOperacion] = useState({
     nombre: "",
+    collectionName: "",
     operacionesTotales: "",
     fuerzasIntervenidas: "",
     sospechosos: "",
@@ -52,7 +55,7 @@ export const AdminPanel = () => {
               <input
                 type="text"
                 placeholder="Op_LDI_III (Ejemplo)"
-                value={operacion.nombre}
+                value={operacion.collectionName}
                 onChange={handleOnChange}
                 name="nombre"
               />
@@ -98,7 +101,23 @@ export const AdminPanel = () => {
               />
             </div>
           </form>
-          <section className="w-full bg-primary/20"></section>
+          <section className="w-full">
+            <div className="flex h-[8%] w-full items-center justify-between rounded-tl-md rounded-tr-md bg-primary px-4">
+              <img src={logoCij} className="w-40" />
+              <h3>{operacion.nombre}</h3>
+              <img src={logoMpf} className="w-40" />
+            </div>
+            <main className="mt-2 grid h-[92%] grid-cols-6 gap-2">
+              <section className="enfasisBorders col-span-1 row-span-1 rounded-md bg-containers"></section>
+              <section className="enfasisBorders col-span-4 row-span-1 rounded-md bg-containers"></section>
+              <section className="enfasisBorders col-span-1 row-span-1 rounded-md bg-containers"></section>
+              <section className="enfasisBorders col-span-1 row-span-2 rounded-md bg-containers"></section>
+              <section className="enfasisBorders col-span-2 row-span-1 rounded-md bg-containers"></section>
+              <section className="enfasisBorders col-span-2 row-span-1 rounded-md bg-containers"></section>
+              <section className="enfasisBorders col-span-1 row-span-2 rounded-md bg-containers"></section>
+              <section className="enfasisBorders col-span-4 row-span-1 rounded-md bg-containers"></section>
+            </main>
+          </section>
         </div>
         <div className="my-4">
           <button className="loginButtons">
