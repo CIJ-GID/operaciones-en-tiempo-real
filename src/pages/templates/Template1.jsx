@@ -14,7 +14,7 @@ import { db } from "../../database/db";
 import { useDispatch } from "react-redux";
 import { updateData } from "../../redux/reducers/dataSlice";
 
-const Template1 = () => {
+ export const Template1 = () => {
   const dispatch = useDispatch();
 
   //! Logica para actualizar datos en tiempo real
@@ -74,4 +74,3 @@ const Template1 = () => {
   );
 };
 
-export default Template1;

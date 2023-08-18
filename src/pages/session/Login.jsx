@@ -5,7 +5,7 @@ import { validateUser } from "../../redux/reducers/loginSlice";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
 
-const Login = () => {
+export const Login = () => {
   const dispatch = useDispatch();
   const [password, setPassword] = useState("");
   const [adminOrInvite, setAdminOrInvite] = useState(false);
@@ -19,7 +19,6 @@ const Login = () => {
 
   const handleClick = (value) => {
     setAdminOrInvite(value);
-    localStorage.setItem("userType", value);
   };
 
   return (
@@ -115,5 +114,3 @@ const Login = () => {
     </motion.main>
   );
 };
-
-export default Login;

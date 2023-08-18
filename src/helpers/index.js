@@ -12,9 +12,8 @@ export function decryptKey(encryptedKey, secret) {
   return decrypted;
 }
 
-export const handleCheckUser = (hash) => {
+export const handleCheckUser = (hash, userType) => {
   if (hash) {
-    const userType = localStorage.getItem("userType");
     const landingPass =
       userType === "admin"
         ? import.meta.env.VITE_LANDING_ADMIN_PASSWORD

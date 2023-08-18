@@ -2,9 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 import { encryptKey } from "../../helpers";
 
 const loginSlice = createSlice({
-  name: "login",
+  name: "user",
   initialState: {
-    user: "",
+    type: "",
+    hash: "",
   },
   reducers: {
     validateUser: (state, action) => {
@@ -18,10 +19,14 @@ const loginSlice = createSlice({
 
       if (coincidence) {
         localStorage.setItem(
-          "userHash",
-          JSON.stringify(encryptKey(password, import.meta.env.VITE_HASH_PASSWORD))
+          "user",
+          JSON.stringify({
+            hash: encryptKey(password, import.meta.env.VITE_HASH_PASSWORD),
+            type: adminOrInvite,
+          })
         );
-        state.user = encryptKey(password, import.meta.env.VITE_HASH_PASSWORD);
+        state.hash = encryptKey(password, import.meta.env.VITE_HASH_PASSWORD);
+        state.type = adminOrInvite;
       } else {
         alert("Contraseña incorrecta!");
       }
