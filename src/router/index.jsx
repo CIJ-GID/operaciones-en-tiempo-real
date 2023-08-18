@@ -1,51 +1,85 @@
+import React, { useMemo } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { handleCheckUser } from "../helpers/index";
-import Login from "../pages/session/Login.jsx";
-import Root from "../pages/Root";
-import ErrorPage from "../pages/error/ErrorPage";
-import StepOne from "../pages/steps/StepOne";
-import StepTwo from "../pages/steps/StepTwo";
-import Index from "../pages/templates/Index";
-import Template1 from "../pages/templates/Template1";
-import Template2 from "../pages/templates/Template2";
-import Template3 from "../pages/templates/Template3";
 import { useSelector } from "react-redux";
+import {
+  Template1,
+  Template2,
+  Template3,
+  ErrorPage,
+  Login,
+  Root,
+  AdminPanel,
+} from "../pages/Index.js";
+import { handleCheckUser } from "../helpers/index";
 
 const Router = () => {
-  const userHash = useSelector(
-    (state) => state.user || JSON.parse(localStorage.getItem("userHash"))
+  const user = useSelector((state) => state.user);
+
+  const { hash, type } = useMemo(
+    () => JSON.parse(localStorage.getItem("user")) || user,
+    [user]
   );
-  const loggedRouter = createBrowserRouter([
+
+  const isAdmin = type === "admin";
+  const isAuthenticated = handleCheckUser(hash, type);
+
+  const adminRoutes = [
     {
       path: "/",
       element: <Root />,
       errorElement: <ErrorPage />,
       children: [
-        { path: "/", element: <StepOne /> },
-        { path: "/2", element: <StepTwo /> },
+        {
+          path: "/",
+          element: <AdminPanel />,
+          index: true,
+        },
       ],
     },
     {
-      path: "/presentacion",
-      element: <Index />,
+      path: "/dashboard",
+      element: <Root />,
       errorElement: <ErrorPage />,
       children: [
-        { path: "/presentacion/1", element: <Template1 /> },
-        { path: "/presentacion/2", element: <Template2 /> },
-        { path: "/presentacion/3", element: <Template3 /> },
+        { path: "/dashboard", element: <Template1 />, index: true },
+        { path: "/dashboard/2", element: <Template2 /> },
+        { path: "/dashboard/3", element: <Template3 /> },
       ],
     },
-  ]);
+  ];
 
-  const notLoggedRouter = createBrowserRouter([
+  const guestRoutes = [
+    {
+      path: "/",
+      element: <Root />,
+      errorElement: <ErrorPage />,
+      children: [
+        { path: "/", element: <Template1 />, index: true },
+        { path: "/2", element: <Template2 /> },
+        { path: "/3", element: <Template3 /> },
+      ],
+    },
+  ];
+
+  const notLoggedRoutes = [
     {
       path: "/",
       element: <Login />,
       errorElement: <ErrorPage />,
     },
-  ]);
+  ];
 
-  const router = handleCheckUser(userHash) ? loggedRouter : notLoggedRouter;
+  let routerConfig;
+
+  if (!isAuthenticated) {
+    routerConfig = notLoggedRoutes;
+  } else if (isAdmin) {
+    routerConfig = adminRoutes;
+  } else {
+    routerConfig = guestRoutes;
+  }
+
+  const router = createBrowserRouter(routerConfig);
 
   return <RouterProvider router={router} />;
 };
