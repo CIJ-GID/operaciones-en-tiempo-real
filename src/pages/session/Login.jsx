@@ -26,15 +26,13 @@ export const Login = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ type: "tween", duration: 0.5 }}
-      id="container"
-      className="flex h-screen w-screen items-center justify-center"
+      className={`mainContainer ${adminOrInvite === "admin" ? "toolsBg" : "hexagonsBg"}`}
     >
       <img src={logoCij} className="absolute top-0 mt-14" />
       <section
         id="loginModal"
-        className={`${
-          adminOrInvite === "admin" ? "toolsBg" : "hexagonsBg"
-        } flex h-[50%] w-[50%] flex-col items-center justify-around overflow-hidden rounded-md border-4  border-primary p-8 shadow-2xl`}
+        className={`flex
+ h-[50%] w-[50%] flex-col items-center justify-around overflow-hidden rounded-md border-4 border-primary  bg-base p-8 shadow-2xl`}
       >
         {!adminOrInvite && (
           <motion.section
@@ -78,9 +76,7 @@ export const Login = () => {
               className="flex h-full w-full flex-col items-center justify-center"
             >
               <div className="flex flex-col">
-                <label className="self-start font-display text-sm font-[200] text-white">
-                  Contraseña
-                </label>
+                <label>Contraseña</label>
                 <div className="flex">
                   <input
                     type={show ? "text" : "password"}

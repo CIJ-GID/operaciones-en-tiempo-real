@@ -1,4 +1,3 @@
-
 const TABLE_ROWS = [
   {
     tipo: "Operaciones Totales",
