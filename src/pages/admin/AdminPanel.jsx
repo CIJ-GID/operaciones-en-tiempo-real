@@ -1,10 +1,15 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import logoCij from "../../assets/logoCij.png";
 import logoMpf from "../../assets/logoMpf.png";
+import { updateOperation } from "../../redux/reducers/operationSlice";
+import { useDispatch } from "react-redux";
+import GeneralInfo from "../../components/GeneralInfo";
 
 export const AdminPanel = () => {
-  const [operacion, setOperacion] = useState({
+  const dispatch = useDispatch();
+
+  const [localOperation, setLocalOperation] = useState({
     nombre: "",
     collectionName: "",
     operacionesTotales: "",
@@ -13,15 +18,20 @@ export const AdminPanel = () => {
     zonasAfectadas: "",
   });
 
+  useEffect(() => {
+    dispatch(updateOperation(localOperation));
+  }, [localOperation]);
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
-    setOperacion({
-      ...operacion,
+    setLocalOperation({
+      ...localOperation,
       [name]: value,
     });
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     console.log(e);
   };
 
@@ -45,7 +55,7 @@ export const AdminPanel = () => {
               <input
                 type="text"
                 placeholder="LUZ DE INFANCIA III (Ejemplo)"
-                value={operacion.nombre}
+                value={localOperation.nombre}
                 onChange={handleOnChange}
                 name="nombre"
               />
@@ -55,9 +65,9 @@ export const AdminPanel = () => {
               <input
                 type="text"
                 placeholder="Op_LDI_III (Ejemplo)"
-                value={operacion.collectionName}
+                value={localOperation.collectionName}
                 onChange={handleOnChange}
-                name="nombre"
+                name="collectionName"
               />
             </div>
             <div className="flex flex-col">
@@ -65,7 +75,7 @@ export const AdminPanel = () => {
               <input
                 type="number"
                 placeholder="¿Cuantos objetivos habrá?"
-                value={operacion.operacionesTotales}
+                value={localOperation.operacionesTotales}
                 onChange={handleOnChange}
                 name="operacionesTotales"
               />
@@ -75,7 +85,7 @@ export const AdminPanel = () => {
               <input
                 type="number"
                 placeholder="¿Cuantas fuerzas van a intervenir?"
-                value={operacion.fuerzasIntervenidas}
+                value={localOperation.fuerzasIntervenidas}
                 onChange={handleOnChange}
                 name="fuerzasIntervenidas"
               />
@@ -85,7 +95,7 @@ export const AdminPanel = () => {
               <input
                 type="number"
                 placeholder="¿Cuantas zonas afectadas habrá?"
-                value={operacion.zonasAfectadas}
+                value={localOperation.zonasAfectadas}
                 onChange={handleOnChange}
                 name="zonasAfectadas"
               />
@@ -95,7 +105,7 @@ export const AdminPanel = () => {
               <input
                 type="number"
                 placeholder="¿Cuantos sospechosos habrá?"
-                value={operacion.sospechosos}
+                value={localOperation.sospechosos}
                 onChange={handleOnChange}
                 name="sospechosos"
               />
@@ -104,7 +114,7 @@ export const AdminPanel = () => {
           <section className="w-full">
             <div className="flex h-[8%] w-full items-center justify-between rounded-tl-md rounded-tr-md bg-primary px-4">
               <img src={logoCij} className="w-40" />
-              <h3>{operacion.nombre}</h3>
+              <h3 className="text-center uppercase">{localOperation.nombre}</h3>
               <img src={logoMpf} className="w-40" />
             </div>
             <main className="mt-2 grid h-[92%] grid-cols-6 gap-2">
@@ -113,7 +123,9 @@ export const AdminPanel = () => {
               <section className="enfasisBorders col-span-1 row-span-1 rounded-md bg-containers"></section>
               <section className="enfasisBorders col-span-1 row-span-2 rounded-md bg-containers"></section>
               <section className="enfasisBorders col-span-2 row-span-1 rounded-md bg-containers"></section>
-              <section className="enfasisBorders col-span-2 row-span-1 rounded-md bg-containers"></section>
+              <section className="enfasisBorders col-span-2 row-span-1 rounded-md bg-containers">
+                <GeneralInfo />
+              </section>
               <section className="enfasisBorders col-span-1 row-span-2 rounded-md bg-containers"></section>
               <section className="enfasisBorders col-span-4 row-span-1 rounded-md bg-containers"></section>
             </main>

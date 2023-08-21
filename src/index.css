@@ -22,7 +22,7 @@
   }
 
   h3 {
-    @apply font-display text-xl  tracking-wider text-white;
+    @apply font-display text-sm  tracking-wider text-white;
   }
 
   input {
