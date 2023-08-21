@@ -3,7 +3,7 @@ import "react-circular-progressbar/dist/styles.css";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import { useSelector } from "react-redux";
 
-const CircularProgress = () => {
+export const CircularProgress = () => {
   const porcentajeObjetivosCompletos = useSelector(
     (state) => state.data.porcentajeObjetivosCompletos
   );
@@ -28,4 +28,3 @@ const CircularProgress = () => {
   );
 };
 
-export default CircularProgress;

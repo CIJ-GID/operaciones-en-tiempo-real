@@ -4,7 +4,7 @@ import logoCij from "../../assets/logoCij.png";
 import logoMpf from "../../assets/logoMpf.png";
 import { updateOperation } from "../../redux/reducers/operationSlice";
 import { useDispatch } from "react-redux";
-import GeneralInfo from "../../components/GeneralInfo";
+import { GeneralInfo } from "../../components/Index";
 
 export const AdminPanel = () => {
   const dispatch = useDispatch();

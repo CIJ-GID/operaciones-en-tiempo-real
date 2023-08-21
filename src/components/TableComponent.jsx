@@ -43,7 +43,7 @@ const TABLE_ROWS = [
   },
 ];
 
-const TableComponent = () => {
+export const TableComponent = () => {
   return (
     <div className="h-full w-full">
       <table className="flex h-full w-full items-center justify-center text-left">
@@ -67,5 +67,3 @@ const TableComponent = () => {
     </div>
   );
 };
-
-export default TableComponent;

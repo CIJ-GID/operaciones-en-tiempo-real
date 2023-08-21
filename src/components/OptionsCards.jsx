@@ -1,6 +1,6 @@
 import React from "react";
 
-const OptionsCards = ({ id, title, description, handleClick }) => {
+export const OptionsCards = ({ id, title, description, handleClick }) => {
   return (
     <div
       className="hover: mx-12 h-60 flex-1 cursor-pointer rounded-md border-2 border-secondary bg-base/30 transition hover:bg-base/40"
@@ -12,4 +12,3 @@ const OptionsCards = ({ id, title, description, handleClick }) => {
   );
 };
 
-export default OptionsCards;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import img from "../assets/fuerzas/1.png";
@@ -8,26 +8,12 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-const SwiperComponent = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleWindowResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleWindowResize);
-
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  });
-
+export const SwiperComponent = () => {
   return (
     <>
       <Swiper
-        slidesPerView={windowWidth > 1900 ? 6 : 4}
-        spaceBetween={windowWidth > 1900 ? 15 : 30}
+        slidesPerView={6}
+        spaceBetween={30}
         autoplay={{
           delay: 1000,
           disableOnInteraction: false,
@@ -35,6 +21,12 @@ const SwiperComponent = () => {
         loop={true}
         modules={[Autoplay]}
         className="h-full w-full"
+        breakpoints={{
+          1900: {
+            slidesPerView: 4,
+            spaceBetween: 15,
+          },
+        }}
       >
         <SwiperSlide className="swiperSlide">
           <img src={img} className="w-[100%] 2xl:h-full  2xl:w-auto" />
@@ -76,5 +68,3 @@ const SwiperComponent = () => {
     </>
   );
 };
-
-export default SwiperComponent;

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 
-const GeneralInfo = () => {
+export const GeneralInfo = () => {
   // Obtén el valor de "operation" desde Redux
   const operation = useSelector((state) => state.operation);
 
@@ -49,5 +49,3 @@ const GeneralInfo = () => {
     </div>
   );
 };
-
-export default GeneralInfo;

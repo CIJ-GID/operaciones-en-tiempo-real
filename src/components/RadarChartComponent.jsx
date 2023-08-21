@@ -5,7 +5,6 @@ import {
   PolarGrid,
   PolarAngleAxis,
   ResponsiveContainer,
-  Label,
 } from "recharts";
 
 const data = [
@@ -35,7 +34,7 @@ const data = [
   },
 ];
 
-const RadarChartComponent = () => {
+export const RadarChartComponent = () => {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <RadarChart outerRadius="80%" data={data} className="2xl:text-xl">
@@ -46,5 +45,3 @@ const RadarChartComponent = () => {
     </ResponsiveContainer>
   );
 };
-
-export default RadarChartComponent;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Legend, RadialBar, RadialBarChart, ResponsiveContainer } from "recharts";
 
-const RadialBarChartComponent = () => {
+export const RadialBarChartComponent = () => {
   const data = [
     {
       name: "Operacion 1",
@@ -52,5 +52,3 @@ const RadialBarChartComponent = () => {
     </ResponsiveContainer>
   );
 };
-
-export default RadialBarChartComponent;

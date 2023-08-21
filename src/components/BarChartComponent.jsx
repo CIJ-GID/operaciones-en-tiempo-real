@@ -61,7 +61,7 @@ const data = [
   },
 ];
 
-const BarChartComponent = () => {
+export const BarChartComponent = () => {
   return (
     <ResponsiveContainer width={"100%"} height={"100%"}>
       <BarChart width={730} height={250} data={data} className="2xl:text-4xl">
@@ -73,5 +73,3 @@ const BarChartComponent = () => {
     </ResponsiveContainer>
   );
 };
-
-export default BarChartComponent;

@@ -1,7 +1,7 @@
 import React from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer, LabelList } from "recharts";
 
-const PieChartComponent = () => {
+export const PieChartComponent = () => {
   const data = [
     { name: "Group A", value: 8 },
     { name: "Group B", value: 3 },
@@ -35,5 +35,3 @@ const PieChartComponent = () => {
     </ResponsiveContainer>
   );
 };
-
-export default PieChartComponent;

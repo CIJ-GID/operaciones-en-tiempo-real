@@ -1,20 +1,21 @@
-import React, { useEffect } from "react";
-import PieChartComponent from "../../components/PieChartComponent";
-import CircularProgress from "../../components/CircularProgress";
-import BarChartComponent from "../../components/BarChartComponent";
-import TableComponent from "../../components/TableComponent";
-import RadarChartComponent from "../../components/RadarChartComponent";
-import GeneralInfo from "../../components/GeneralInfo";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { updateData } from "../../redux/reducers/dataSlice";
+import { onSnapshot, collection } from "firebase/firestore";
+import { db } from "../../database/db";
 import map from "../../assets/MAPA.mp4";
 import logoCij from "../../assets/logoCij.png";
 import logoMpf from "../../assets/logoMpf.png";
-import SwiperComponent from "../../components/Swiper";
-import { onSnapshot, collection } from "firebase/firestore";
-import { db } from "../../database/db";
-import { useDispatch } from "react-redux";
-import { updateData } from "../../redux/reducers/dataSlice";
+import {
+  PieChartComponent,
+  CircularProgress,
+  BarChartComponent,
+  GeneralInfo,
+  RadarChartComponent,
+  SwiperComponent,
+} from "../../components/Index";
 
- export const Template1 = () => {
+export const Template1 = () => {
   const dispatch = useDispatch();
 
   //! Logica para actualizar datos en tiempo real
@@ -28,7 +29,7 @@ import { updateData } from "../../redux/reducers/dataSlice";
 
   return (
     <>
-      <section className="flex h-[8%] w-full items-center bg-enfasis p-2 px-8 font-anton text-3xl text-white shadow-xl sm:justify-center md:justify-between">
+      <section className="font-anton flex h-[8%] w-full items-center bg-enfasis p-2 px-8 text-3xl text-white shadow-xl sm:justify-center md:justify-between">
         <img src={logoCij} className="hidden h-full md:flex 2xl:h-[80%]" />
         <span className="2xl:text-8xl">Operacion X</span>
         <img src={logoMpf} className="hidden h-full md:flex 2xl:h-[80%]" />
@@ -73,4 +74,3 @@ import { updateData } from "../../redux/reducers/dataSlice";
     </>
   );
 };
-
