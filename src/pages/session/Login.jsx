@@ -18,6 +18,7 @@ export const Login = () => {
   };
 
   const handleClick = (value) => {
+    setPassword("");
     setAdminOrInvite(value);
   };
 

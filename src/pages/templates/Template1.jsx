@@ -13,6 +13,7 @@ import {
   GeneralInfo,
   RadarChartComponent,
   SwiperComponent,
+  TableComponent,
 } from "../../components/Index";
 
 export const Template1 = () => {

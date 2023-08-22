@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import logoCij from "../../assets/logoCij.png";
 import logoMpf from "../../assets/logoMpf.png";
-import { updateOperation } from "../../redux/reducers/operationSlice";
+import { updateOperation, loadOperation } from "../../redux/reducers/operationSlice";
 import { useDispatch } from "react-redux";
 import { GeneralInfo } from "../../components/Index";
+import { useNavigate } from "react-router-dom";
 
-export const AdminPanel = () => {
+export const DatosGenerales = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [localOperation, setLocalOperation] = useState({
     nombre: "",
@@ -32,7 +34,8 @@ export const AdminPanel = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
+    dispatch(loadOperation(localOperation));
+    navigate("/2");
   };
 
   return (
@@ -49,7 +52,7 @@ export const AdminPanel = () => {
           <h2>Paso 1/3</h2>
         </div>
         <div className="grid h-full w-full grid-cols-2 gap-12 p-4 px-12">
-          <form onSubmit={handleSubmit} className="flex w-full flex-col justify-around">
+          <form className="flex w-full flex-col justify-around">
             <div className="flex flex-col">
               <label>Nombre de Operación (Se muestra como titulo)</label>
               <input
@@ -132,7 +135,7 @@ export const AdminPanel = () => {
           </section>
         </div>
         <div className="my-4">
-          <button className="loginButtons">
+          <button className="loginButtons" onClick={handleSubmit}>
             SIGUENTE <strong>2/3</strong>
           </button>
         </div>

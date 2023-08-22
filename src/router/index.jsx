@@ -8,7 +8,8 @@ import {
   ErrorPage,
   Login,
   Root,
-  AdminPanel,
+  DatosGenerales,
+  Objetivos,
 } from "../pages/Index.js";
 import { handleCheckUser } from "../helpers/index";
 
@@ -31,8 +32,12 @@ const Router = () => {
       children: [
         {
           path: "/",
-          element: <AdminPanel />,
+          element: <DatosGenerales />,
           index: true,
+        },
+        {
+          path: "/2",
+          element: <Objetivos />,
         },
       ],
     },
