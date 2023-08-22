@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 export const GeneralInfo = () => {
-  // Obtén el valor de "operation" desde Redux
   const operation = useSelector((state) => state.operation);
 
   const rows = [
@@ -23,8 +22,6 @@ export const GeneralInfo = () => {
       cant: operation.sospechosos,
     },
   ];
-
-  // No es necesario utilizar useState y useEffect para actualizar "operation"
 
   return (
     <div className="h-full w-full">
