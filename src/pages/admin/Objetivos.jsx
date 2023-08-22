@@ -63,7 +63,7 @@ export const Objetivos = () => {
         <div className="flex w-full items-center justify-between border-b-2 border-primary p-6">
           <h2>Configuración</h2>
           <h1>OBJETIVOS</h1>
-          <h2>Paso 2/2</h2>
+          <h2>Paso 2/3</h2>
         </div>
         <div className="grid h-full w-full grid-cols-2 gap-12 p-4 px-12">
           {/* <section className="w-full outline"></section> */}
@@ -79,7 +79,9 @@ export const Objetivos = () => {
         </div>
         <div className="my-4">
           <button
-            className="loginButtons"
+            className={`loginButtons ${
+              jsonData && "pointer-events-auto bg-white"
+            } pointer-events-none bg-containers`}
             onClick={() => {
               // Aquí puedes navegar al dashboard si el JSON se ha cargado y convertido
               // y guardado en la base de datos
@@ -90,7 +92,7 @@ export const Objetivos = () => {
               }
             }}
           >
-            IR AL <strong>DASHBOARD</strong>
+            SIGUENTE <strong>3/3</strong>
           </button>
         </div>
       </section>

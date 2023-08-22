@@ -50,7 +50,7 @@ export const DatosGenerales = () => {
         <div className="flex w-full items-center justify-between border-b-2 border-primary p-6">
           <h2>Configuración</h2>
           <h1>DATOS GENERALES</h1>
-          <h2>Paso 1/2</h2>
+          <h2>Paso 1/3</h2>
         </div>
         <div className="grid h-full w-full grid-cols-2 gap-12 p-4 px-12">
           <form className="flex w-full flex-col justify-around">
@@ -137,7 +137,7 @@ export const DatosGenerales = () => {
         </div>
         <div className="my-4">
           <button className="loginButtons" onClick={handleSubmit}>
-            SIGUENTE <strong>2/2</strong>
+            SIGUENTE <strong>2/3</strong>
           </button>
         </div>
       </section>
