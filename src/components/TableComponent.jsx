@@ -2,8 +2,9 @@ import React from "react";
 
 const TABLE_ROWS = [
   {
-    tipo: "Grupo 1",
-    cant: 15,
+    tipo: "ALLANAMIENTOS",
+    cant: 62,
+    color: "text-[#6BBED0] font-bold",
   },
   {
     tipo: "grupo 2",
@@ -47,16 +48,16 @@ export const TableComponent = () => {
   return (
     <div className="h-full w-full">
       <table className="flex h-full w-full items-center justify-center text-left">
-        <tbody className="w-full rounded-md border-2 border-base">
-          {TABLE_ROWS.map(({ tipo, cant }) => (
-            <tr key={tipo} className="2xl:h-18 even:bg-white/10">
+        <tbody className="w-full rounded-md">
+          {TABLE_ROWS.map(({ tipo, cant, color }) => (
+            <tr key={tipo} className="2xl:h-18 border-b-2 border-primary">
               <td className="w-full p-2 2xl:p-4 ">
-                <span className="font-bold text-gray-300 sm:text-sm 2xl:text-3xl">
+                <span className={`text-gray-300 sm:text-sm 2xl:text-3xl ${color}`}>
                   {tipo}
                 </span>
               </td>
               <td className="w-full p-2">
-                <span className="font-bold text-gray-300 sm:text-sm 2xl:text-3xl">
+                <span className={`text-gray-300 sm:text-sm 2xl:text-3xl ${color}`}>
                   {cant}
                 </span>
               </td>
