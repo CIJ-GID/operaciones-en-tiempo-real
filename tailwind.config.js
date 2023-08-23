@@ -8,6 +8,7 @@ export default {
     colors: {
       base: "#1C1C1C",
       primary: "#006473",
+      darkPrimary: "#014A5B",
       enfasis: "#005F71",
       containers: "#262626",
       success: "#287300",
