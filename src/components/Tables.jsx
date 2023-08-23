@@ -27,9 +27,9 @@ export const TableWithEvenNoBorder = ({ tableData }) => {
   return (
     <table className="flex h-full w-full items-center justify-center text-left">
       <tbody className="w-full rounded-md">
-        {tableData.map(({ tipo, cant, color }, index) => (
+        {tableData.map(({ tipo, cant, cant2, color }, index) => (
           <tr key={index} className="even:bg-primary/50">
-            <td className="w-full p-2 2xl:p-4 ">
+            <td className="w-full p-2">
               <span className={`text-gray-300 sm:text-sm 2xl:text-3xl ${color}`}>
                 {tipo}
               </span>
@@ -37,6 +37,11 @@ export const TableWithEvenNoBorder = ({ tableData }) => {
             <td className="w-full p-2">
               <span className={`text-gray-300 sm:text-sm 2xl:text-3xl ${color}`}>
                 {cant}
+              </span>
+            </td>
+            <td className="w-full p-2">
+              <span className={`text-gray-300 sm:text-sm 2xl:text-3xl ${color}`}>
+                {cant2}
               </span>
             </td>
           </tr>

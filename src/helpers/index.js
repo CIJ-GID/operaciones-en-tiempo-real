@@ -70,3 +70,20 @@ export function formatDataToTableData(data) {
 
   return outputArray;
 }
+
+export const provincias = [
+  { name: "Prov. Buenos Aires", cantObjetivos: 0, cantDetenidos: "-" },
+  { name: "CABA", cantObjetivos: 0, cantDetenidos: "-" },
+  { name: "Entre Ríos", cantObjetivos: 0, cantDetenidos: "-" },
+  { name: "Santa Fe", cantObjetivos: 0, cantDetenidos: "-" },
+  { name: "Chubut", cantObjetivos: 0, cantDetenidos: "-" },
+  { name: "Córdoba", cantObjetivos: 0, cantDetenidos: "-" },
+  { name: "Formosa", cantObjetivos: 0, cantDetenidos: "-" },
+  { name: "Salta", cantObjetivos: 0, cantDetenidos: "-" },
+  { name: "San Luis", cantObjetivos: 0, cantDetenidos: "-" },
+  { name: "Misiones", cantObjetivos: 0, cantDetenidos: "-" },
+  { name: "Jujuy", cantObjetivos: 0, cantDetenidos: "-" },
+  { name: "Mendoza", cantObjetivos: 0, cantDetenidos: "-" },
+  { name: "Chaco", cantObjetivos: 0, cantDetenidos: "-" },
+  { name: "San Juan", cantObjetivos: 0, cantDetenidos: "-" },
+];

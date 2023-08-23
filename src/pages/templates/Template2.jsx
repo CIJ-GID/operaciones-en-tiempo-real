@@ -19,8 +19,6 @@ export const Template2 = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.data);
 
-  console.log(data);
-
   //! Logica para actualizar datos en tiempo real
   onSnapshot(collection(db, import.meta.env.VITE_FIREBASE_DB_NAME), (snap) => {
     const data = [];
@@ -49,12 +47,10 @@ export const Template2 = () => {
             <TableWithEvenNoBorder
               tableData={[
                 {
-                  tipo: "ALLANAMIENTOS",
-                  cant: 62,
-                },
-                {
-                  tipo: "ALLANAMIENTOS",
-                  cant: 62,
+                  tipo: "PROVINCIA",
+                  cant: "OBJETIVOS",
+                  cant2: "DETENIDOS",
+                  color: "text-principalTextColor font-bold",
                 },
               ]}
             />

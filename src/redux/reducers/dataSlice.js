@@ -19,7 +19,7 @@ const dataSlice = createSlice({
   reducers: {
     updateData: (state, action) => {
       const docs = action.payload;
-      let cantObj = docs.length;
+      let cantObj = docs.length; //!?? -3 porque empieza de 0, tiene el doc de datos generales y el de provincias
       let objetivosAllanados = docs.filter((doc) => doc.objetivo_allanado === "SI");
       state.porcentajeObjetivosCompletos = Math.floor(
         (Number(objetivosAllanados.length) * 100) / cantObj
