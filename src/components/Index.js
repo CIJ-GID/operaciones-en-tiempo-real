@@ -5,5 +5,5 @@ export { OptionsCards } from "./OptionsCards";
 export { PieChartComponent } from "./PieChartComponent";
 export { RadarChartComponent } from "./RadarChartComponent";
 export { RadialBarChartComponent } from "./RadialBarChartComponent";
-export { TableComponent } from "./TableComponent";
+export { TableWithBorderNoEven, TableWithEvenNoBorder, TableSimple } from "./Tables";
 export { SwiperComponent } from "./SwiperComponent";

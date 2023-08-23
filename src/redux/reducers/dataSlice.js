@@ -4,16 +4,17 @@ const dataSlice = createSlice({
   name: "data",
   initialState: {
     porcentajeObjetivosCompletos: 0,
-    cantDetenidos: 0,
-    celularesSecuestrados: 0,
-    dispositivosDeAlm: 0,
-    dispositivosElectronicos: 0,
-    elementosNoDigitales: 0,
+    cantObj: 0,
     menores: 0,
+    cantDetenidos: 0,
+    triages: 0,
+    celularesSecuestrados: 0,
+    tabletsSecuestradas: 0,
     notebooksSecuestradas: 0,
     pcsSecuestradas: 0,
-    tabletsSecuestradas: 0,
-    triages: 0,
+    dispositivosElectronicos: 0,
+    dispositivosDeAlm: 0,
+    elementosNoDigitales: 0,
   },
   reducers: {
     updateData: (state, action) => {
@@ -23,6 +24,8 @@ const dataSlice = createSlice({
       state.porcentajeObjetivosCompletos = Math.floor(
         (Number(objetivosAllanados.length) * 100) / cantObj
       );
+
+      state.cantObj = cantObj;
 
       docs.forEach((doc) => {
         state.cantDetenidos += doc.cantidad_detenidos || 0;

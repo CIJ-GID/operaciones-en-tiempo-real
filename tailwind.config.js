@@ -9,6 +9,7 @@ export default {
       base: "#1C1C1C",
       primary: "#006473",
       darkPrimary: "#014A5B",
+      principalTextColor: "#6BBED0",
       enfasis: "#005F71",
       containers: "#262626",
       success: "#287300",

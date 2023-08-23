@@ -13,7 +13,6 @@ import {
   GeneralInfo,
   RadarChartComponent,
   SwiperComponent,
-  TableComponent,
 } from "../../components/Index";
 
 export const Template1 = () => {
@@ -50,7 +49,7 @@ export const Template1 = () => {
           <PieChartComponent />
         </section>
         <section className="templateSections enfasisBorders col-span-2 md:col-span-1 xl:row-span-2 2xl:col-span-2 2xl:row-span-4">
-          <TableComponent />
+          {/* <TableComponent /> */}
         </section>
         <section className="templateSections enfasisBorders sm:col-span-1 sm:row-start-2 md:col-start-2 xl:row-span-1 2xl:col-span-2 2xl:col-start-3 2xl:row-span-2">
           <CircularProgress />
