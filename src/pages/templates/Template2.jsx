@@ -40,20 +40,25 @@ export const Template2 = () => {
       </section>
       <section className="row-span-4 grid h-full grid-cols-4 grid-rows-3  gap-10 bg-darkPrimary p-8">
         <section className="col-span-1 row-span-3 border-r-2 border-primary p-4">
-          <TableWithBorderNoEven tableData={formatDataToTableData(data)} />
+          <TableWithEvenNoBorder
+            tableData={[
+              {
+                tipo: "PROVINCIA",
+                cant: "OBJETIVOS",
+                cant2: "DETENIDOS",
+                color: "text-principalTextColor font-bold",
+              },
+              {
+                tipo: "Prov. Buenos Aires",
+                cant: "02",
+                cant2: "-",
+              },
+            ]}
+          />
         </section>
         <section className="col-span-2 row-span-2 grid grid-cols-2 gap-4 p-2">
           <section className="col-span-1 ">
-            <TableWithEvenNoBorder
-              tableData={[
-                {
-                  tipo: "PROVINCIA",
-                  cant: "OBJETIVOS",
-                  cant2: "DETENIDOS",
-                  color: "text-principalTextColor font-bold",
-                },
-              ]}
-            />
+            <TableWithBorderNoEven tableData={formatDataToTableData(data)} />
           </section>
           <section className="col-span-1 flex flex-col items-center justify-between">
             <h3 className="text-center text-2xl uppercase text-principalTextColor">
