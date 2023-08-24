@@ -40,7 +40,9 @@ export const TableWithEvenNoBorder = ({ tableData }) => {
               </span>
             </td>
             <td className="w-full p-2">
-              <span className={`text-gray-300 sm:text-sm 2xl:text-3xl ${color}`}>
+              <span
+                className={`2xl:text-3x font-bold text-principalTextColor sm:text-sm `}
+              >
                 {cant2}
               </span>
             </td>
