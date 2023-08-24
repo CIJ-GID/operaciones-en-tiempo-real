@@ -6,7 +6,8 @@ import { motion } from "framer-motion";
 import logoCij from "../../assets/logoCij.png";
 import logoMpf from "../../assets/logoMpf.png";
 import { GeneralInfo } from "../../components/Index";
-import { db, setDoc, doc } from "../../database/db";
+import { db, setDoc, doc, collection, addDoc } from "../../database/db";
+import { provincias } from "../../helpers";
 
 export const DatosGenerales = () => {
   const dispatch = useDispatch();
@@ -35,7 +36,12 @@ export const DatosGenerales = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await setDoc(doc(db, localOperation.collectionName, "GeneralInfo"), localOperation);
+    const rootRef = doc(db, localOperation.collectionName, "GeneralInfo");
+    await setDoc(rootRef, localOperation);
+    for (const prov of provincias) {
+      const provRef = collection(rootRef, prov.name);
+      await addDoc(provRef, { ...prov });
+    }
     navigate("/2");
   };
 
