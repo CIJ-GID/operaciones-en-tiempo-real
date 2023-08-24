@@ -59,8 +59,8 @@ const Router = () => {
       element: <Root />,
       errorElement: <ErrorPage />,
       children: [
-        { path: "/", element: <Template1 />, index: true },
-        { path: "/2", element: <Template2 /> },
+        // { path: "/", element: <Template1 />, index: true },
+        { path: "/", element: <Template2 />, index: true },
         { path: "/3", element: <Template3 /> },
       ],
     },
