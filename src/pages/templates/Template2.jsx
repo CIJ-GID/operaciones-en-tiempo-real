@@ -6,6 +6,7 @@ import { db } from "../../database/db";
 import map from "../../assets/MAPA.mp4";
 import logoCij from "../../assets/logoCij.png";
 import logoMpf from "../../assets/logoMpf.png";
+import watermark from "../../assets/watermark.png";
 import {
   CircularProgress,
   SwiperComponent,
@@ -38,13 +39,14 @@ export const Template2 = () => {
 
   return (
     <main className="grid h-screen grid-rows-5">
-      <section className="row-span-1 flex items-center justify-between bg-primary p-8">
+      <section className="relative row-span-1 flex items-center justify-between overflow-hidden bg-primary p-8">
         <img src={logoMpf} />
         <span className="text-center text-3xl font-[200] text-white">
           OPERATIVO <br />
           <strong className="font-[800]">RED FEDERAL EN ALERTA II</strong>
         </span>
-        <img src={logoCij} />
+        <img src={logoCij} className="z-10" />
+        <img src={watermark} className="absolute -bottom-5  -right-10 h-full" />
       </section>
       <section className="row-span-4 grid h-full grid-cols-4 grid-rows-3  gap-10 bg-darkPrimary p-8">
         <section className="col-span-1 row-span-3 border-r-2 border-primary p-4">
