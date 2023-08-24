@@ -61,7 +61,7 @@ const Router = () => {
       children: [
         // { path: "/", element: <Template1 />, index: true },
         { path: "/", element: <Template2 />, index: true },
-        { path: "/3", element: <Template3 /> },
+        // { path: "/3", element: <Template3 /> },
       ],
     },
   ];
