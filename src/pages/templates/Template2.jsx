@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateData } from "../../redux/reducers/dataSlice";
 import { onSnapshot, collection } from "firebase/firestore";
@@ -19,14 +19,24 @@ export const Template2 = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.data);
 
-  //! Logica para actualizar datos en tiempo real
-  onSnapshot(collection(db, import.meta.env.VITE_FIREBASE_DB_NAME), (snap) => {
-    const data = [];
-    snap.forEach((doc) => {
-      data.push(doc.data());
+  useEffect(() => {
+    const unsubscribe = onSnapshot(collection(db, "Op_RFA_III"), (snap) => {
+      const data = [];
+      for (const doc of snap.docs) {
+        const docData = doc.data();
+        if (docData.GUID) {
+          data.push(docData);
+        }
+      }
+      dispatch(updateData(data));
     });
-    dispatch(updateData(data));
-  });
+
+    return () => {
+      unsubscribe();
+    };
+  }, [dispatch]);
+
+  const memoizedData = useMemo(() => data, [data]);
 
   return (
     <main className="grid h-screen grid-rows-5">

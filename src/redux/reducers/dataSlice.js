@@ -19,26 +19,55 @@ const dataSlice = createSlice({
   reducers: {
     updateData: (state, action) => {
       const docs = action.payload;
-      let cantObj = docs.length; //!?? -3 porque empieza de 0, tiene el doc de datos generales y el de provincias
-      let objetivosAllanados = docs.filter((doc) => doc.objetivo_allanado === "SI");
-      state.porcentajeObjetivosCompletos = Math.floor(
-        (Number(objetivosAllanados.length) * 100) / cantObj
-      );
+      let res = {
+        //* Estado inicial
+        porcentajeObjetivosCompletos: 0,
+        cantDetenidos: 0,
+        celularesSecuestrados: 0,
+        dispositivosDeAlm: 0,
+        dispositivosElectronicos: 0,
+        elementosNoDigitales: 0,
+        menores: 0,
+        notebooksSecuestradas: 0,
+        pcsSecuestradas: 0,
+        tabletsSecuestradas: 0,
+        triages: 0,
+      };
 
-      state.cantObj = cantObj;
-
-      docs.forEach((doc) => {
-        state.cantDetenidos += doc.cantidad_detenidos || 0;
-        state.celularesSecuestrados += doc.celulares_secuestrados || 0;
-        state.dispositivosDeAlm += doc.dispositivos_de_almacenamiento || 0;
-        state.dispositivosElectronicos += doc.dispositivos_electronicos || 0;
-        state.elementosNoDigitales += doc.elementos_no_digitales || 0;
-        state.menores += doc.menores_de_edad || 0;
-        state.notebooksSecuestradas += doc.notebooks_secuestradas || 0;
-        state.pcsSecuestradas += doc.pcs_secuestradas || 0;
-        state.tabletsSecuestradas += doc.tablets_secuestradas || 0;
-        state.triages += doc.triage === "SI" ? 1 : 0;
-      });
+      let cantObj = Number(docs.length); //* Saco cantidad de objetivos
+      let ObjetivosAllanados = docs.filter((doc) => doc.objetivo_allanado === "SI"); //* Objetivos allanados
+      res.porcentajeObjetivosCompletos = Math.floor(
+        (Number(ObjetivosAllanados.length) * 100) / cantObj
+      ); //* Saco porcentaje de objetivos
+      docs.filter((doc) => {
+        const {
+          cantidad_detenidos,
+          celulares_secuestrados,
+          dispositivos_de_almacenamiento,
+          dispositivos_electronicos,
+          elementos_no_digitales,
+          menores_de_edad,
+          notebooks_secuestradas,
+          pcs_secuestradas,
+          tablets_secuestradas,
+          triage,
+        } = doc; //* Destructuring
+        res.cantDetenidos += cantidad_detenidos;
+        res.celularesSecuestrados += celulares_secuestrados;
+        res.dispositivosDeAlm += dispositivos_de_almacenamiento;
+        res.dispositivosElectronicos += dispositivos_electronicos;
+        res.elementosNoDigitales += elementos_no_digitales;
+        res.menores += menores_de_edad;
+        res.notebooksSecuestradas += notebooks_secuestradas;
+        res.pcsSecuestradas += pcs_secuestradas;
+        res.tabletsSecuestradas += tablets_secuestradas;
+        triage === "SI" ? res.triages++ : null;
+      }); //* Saco cantidades
+      return {
+        ...state,
+        cantObj: cantObj,
+        ...res,
+      };
     },
   },
 });
