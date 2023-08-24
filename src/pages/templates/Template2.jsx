@@ -36,8 +36,6 @@ export const Template2 = () => {
     };
   }, [dispatch]);
 
-  const memoizedData = useMemo(() => data, [data]);
-
   return (
     <main className="grid h-screen grid-rows-5">
       <section className="row-span-1 flex items-center justify-between bg-primary p-8">

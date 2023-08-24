@@ -35,7 +35,9 @@ const dataSlice = createSlice({
       };
 
       let cantObj = Number(docs.length); //* Saco cantidad de objetivos
-      let ObjetivosAllanados = docs.filter((doc) => doc.objetivo_allanado === "SI"); //* Objetivos allanados
+      let ObjetivosAllanados = docs.filter(
+        (doc) => doc.objetivo_allanado.toUpperCase() === "SI"
+      ); //* Objetivos allanados
       res.porcentajeObjetivosCompletos = Math.floor(
         (Number(ObjetivosAllanados.length) * 100) / cantObj
       ); //* Saco porcentaje de objetivos
