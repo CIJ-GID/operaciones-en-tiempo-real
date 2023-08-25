@@ -53,7 +53,7 @@ export const Template2 = () => {
           <TableWithEvenNoBorder
             tableData={[
               {
-                tipo: "PROVINCIA",
+                tipo: "",
                 cant: "OBJETIVOS",
                 cant2: "DETENIDOS",
                 color: "text-principalTextColor font-bold",
