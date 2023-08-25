@@ -43,8 +43,8 @@ export const Objetivos = () => {
           elementos_no_digitales: 0,
           menores_de_edad: 0,
           triage: "NO",
-          otras_actividades_ilegales: "NO",
         });
+        console.log(`Documento ${obj.OBJ} guardados exitosamente`);
       }
       console.log("Documentos guardados exitosamente");
     } catch (error) {
