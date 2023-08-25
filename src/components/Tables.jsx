@@ -29,18 +29,20 @@ export const TableWithEvenNoBorder = ({ tableData }) => {
       <tbody className="w-full rounded-md">
         {tableData.map(({ tipo, cant, cant2, color }, index) => (
           <tr key={index} className="even:bg-primary/50">
-            <td className="w-full p-2">
+            <td className="w-full">
               <span className={`text-gray-300 sm:text-sm 2xl:text-3xl ${color}`}>
                 {tipo}
               </span>
             </td>
-            <td className="w-full p-2">
+            <td className="w-full">
               <span className={`text-gray-300 sm:text-sm 2xl:text-3xl ${color}`}>
                 {cant}
               </span>
             </td>
-            <td className="w-full p-2">
-              <span className={`text-gray-300 sm:text-sm 2xl:text-3xl ${color}`}>
+            <td className="w-full pl-6">
+              <span
+                className={`2xl:text-3x font-bold text-principalTextColor sm:text-sm`}
+              >
                 {cant2}
               </span>
             </td>

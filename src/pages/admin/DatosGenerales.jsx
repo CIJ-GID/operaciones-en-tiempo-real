@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import logoCij from "../../assets/logoCij.png";
 import logoMpf from "../../assets/logoMpf.png";
-import { GeneralInfo } from "../../components/Index";
 import { db, setDoc, doc } from "../../database/db";
 
 export const DatosGenerales = () => {
@@ -15,10 +14,6 @@ export const DatosGenerales = () => {
   const [localOperation, setLocalOperation] = useState({
     nombre: "",
     collectionName: "",
-    operacionesTotales: "",
-    fuerzasIntervenidas: "",
-    sospechosos: "",
-    zonasAfectadas: "",
   });
 
   useEffect(() => {
@@ -52,8 +47,8 @@ export const DatosGenerales = () => {
           <h1>DATOS GENERALES</h1>
           <h2>Paso 1/3</h2>
         </div>
-        <div className="grid h-full w-full grid-cols-2 gap-12 p-4 px-12">
-          <form className="flex w-full flex-col justify-around">
+        <div className="grid h-full w-full grid-cols-2 gap-12  p-4 px-12">
+          <form className="flex w-full flex-col justify-center space-y-12">
             <div className="flex flex-col">
               <label>Nombre de Operación (Se muestra como titulo)</label>
               <input
@@ -74,46 +69,6 @@ export const DatosGenerales = () => {
                 name="collectionName"
               />
             </div>
-            <div className="flex flex-col">
-              <label>Operaciones Totales (Número)</label>
-              <input
-                type="number"
-                placeholder="¿Cuantos objetivos habrá?"
-                value={localOperation.operacionesTotales}
-                onChange={handleOnChange}
-                name="operacionesTotales"
-              />
-            </div>
-            <div className="flex flex-col">
-              <label>Fuerzas Intervenidas (Número)</label>
-              <input
-                type="number"
-                placeholder="¿Cuantas fuerzas van a intervenir?"
-                value={localOperation.fuerzasIntervenidas}
-                onChange={handleOnChange}
-                name="fuerzasIntervenidas"
-              />
-            </div>
-            <div className="flex flex-col">
-              <label>Zonas Afectadas (Número)</label>
-              <input
-                type="number"
-                placeholder="¿Cuantas zonas afectadas habrá?"
-                value={localOperation.zonasAfectadas}
-                onChange={handleOnChange}
-                name="zonasAfectadas"
-              />
-            </div>
-            <div className="flex flex-col">
-              <label>Sospechosos (Número)</label>
-              <input
-                type="number"
-                placeholder="¿Cuantos sospechosos habrá?"
-                value={localOperation.sospechosos}
-                onChange={handleOnChange}
-                name="sospechosos"
-              />
-            </div>
           </form>
           <section className="w-full">
             <div className="flex h-[8%] w-full items-center justify-between rounded-tl-md rounded-tr-md bg-primary px-4">
@@ -127,9 +82,7 @@ export const DatosGenerales = () => {
               <section className="enfasisBorders col-span-1 row-span-1 rounded-md bg-containers"></section>
               <section className="enfasisBorders col-span-1 row-span-2 rounded-md bg-containers"></section>
               <section className="enfasisBorders col-span-2 row-span-1 rounded-md bg-containers"></section>
-              <section className="enfasisBorders col-span-2 row-span-1 rounded-md bg-containers">
-                <GeneralInfo />
-              </section>
+              <section className="enfasisBorders col-span-2 row-span-1 rounded-md bg-containers"></section>
               <section className="enfasisBorders col-span-1 row-span-2 rounded-md bg-containers"></section>
               <section className="enfasisBorders col-span-4 row-span-1 rounded-md bg-containers"></section>
             </main>

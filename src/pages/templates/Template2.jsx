@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateData } from "../../redux/reducers/dataSlice";
-import { onSnapshot, collection } from "firebase/firestore";
+import { onSnapshot, collection, doc, getDocs } from "firebase/firestore";
 import { db } from "../../database/db";
 import map from "../../assets/MAPA.mp4";
 import logoCij from "../../assets/logoCij.png";
 import logoMpf from "../../assets/logoMpf.png";
+import watermark from "../../assets/watermark.png";
 import {
   CircularProgress,
   SwiperComponent,
@@ -19,41 +20,51 @@ export const Template2 = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.data);
 
-  //! Logica para actualizar datos en tiempo real
-  onSnapshot(collection(db, import.meta.env.VITE_FIREBASE_DB_NAME), (snap) => {
-    const data = [];
-    snap.forEach((doc) => {
-      data.push(doc.data());
+  useEffect(() => {
+    const unsubscribe = onSnapshot(collection(db, "Op_RFA_II"), (snap) => {
+      const data = [];
+      for (const doc of snap.docs) {
+        const docData = doc.data();
+        if (docData.GUID || docData.CANT_OBJETIVOS) {
+          data.push(docData);
+        }
+      }
+      dispatch(updateData(data));
     });
-    dispatch(updateData(data));
-  });
+
+    return () => {
+      unsubscribe();
+    };
+  }, [dispatch]);
 
   return (
     <main className="grid h-screen grid-rows-5">
-      <section className="row-span-1 flex items-center justify-between bg-primary p-8">
+      <section className="relative row-span-1 flex items-center justify-between overflow-hidden bg-primary p-8">
         <img src={logoMpf} />
         <span className="text-center text-3xl font-[200] text-white">
           OPERATIVO <br />
           <strong className="font-[800]">RED FEDERAL EN ALERTA II</strong>
         </span>
-        <img src={logoCij} />
+        <img src={logoCij} className="z-10" />
+        <img src={watermark} className="absolute -bottom-5  -right-10 h-full" />
       </section>
       <section className="row-span-4 grid h-full grid-cols-4 grid-rows-3  gap-10 bg-darkPrimary p-8">
         <section className="col-span-1 row-span-3 border-r-2 border-primary p-4">
-          <TableWithBorderNoEven tableData={formatDataToTableData(data)} />
+          <TableWithEvenNoBorder
+            tableData={[
+              {
+                tipo: "PROVINCIA",
+                cant: "OBJETIVOS",
+                cant2: "DETENIDOS",
+                color: "text-principalTextColor font-bold",
+              },
+              ...data.tableData,
+            ]}
+          />
         </section>
         <section className="col-span-2 row-span-2 grid grid-cols-2 gap-4 p-2">
           <section className="col-span-1 ">
-            <TableWithEvenNoBorder
-              tableData={[
-                {
-                  tipo: "PROVINCIA",
-                  cant: "OBJETIVOS",
-                  cant2: "DETENIDOS",
-                  color: "text-principalTextColor font-bold",
-                },
-              ]}
-            />
+            <TableWithBorderNoEven tableData={formatDataToTableData(data.tableData2)} />
           </section>
           <section className="col-span-1 flex flex-col items-center justify-between">
             <h3 className="text-center text-2xl uppercase text-principalTextColor">

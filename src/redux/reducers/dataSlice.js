@@ -15,30 +15,101 @@ const dataSlice = createSlice({
     dispositivosElectronicos: 0,
     dispositivosDeAlm: 0,
     elementosNoDigitales: 0,
+    tableData: [],
+    tableData2: {},
   },
   reducers: {
     updateData: (state, action) => {
       const docs = action.payload;
-      let cantObj = docs.length; //!?? -3 porque empieza de 0, tiene el doc de datos generales y el de provincias
-      let objetivosAllanados = docs.filter((doc) => doc.objetivo_allanado === "SI");
-      state.porcentajeObjetivosCompletos = Math.floor(
-        (Number(objetivosAllanados.length) * 100) / cantObj
-      );
 
-      state.cantObj = cantObj;
+      const paises = docs.filter((d) => d.CANT_OBJETIVOS);
+      const objetivos = docs.filter((d) => d.GUID);
 
-      docs.forEach((doc) => {
-        state.cantDetenidos += doc.cantidad_detenidos || 0;
-        state.celularesSecuestrados += doc.celulares_secuestrados || 0;
-        state.dispositivosDeAlm += doc.dispositivos_de_almacenamiento || 0;
-        state.dispositivosElectronicos += doc.dispositivos_electronicos || 0;
-        state.elementosNoDigitales += doc.elementos_no_digitales || 0;
-        state.menores += doc.menores_de_edad || 0;
-        state.notebooksSecuestradas += doc.notebooks_secuestradas || 0;
-        state.pcsSecuestradas += doc.pcs_secuestradas || 0;
-        state.tabletsSecuestradas += doc.tablets_secuestradas || 0;
-        state.triages += doc.triage === "SI" ? 1 : 0;
+      const paisesArray = [];
+
+      paises.map((p) => {
+        paisesArray.push({
+          tipo: p.OBJETIVO,
+          cant: p.CANT_OBJETIVOS,
+          cant2: p.cantidad_detenidos,
+        });
       });
+
+      // Group data by province and calculate sums
+      const provinceData = {};
+
+      objetivos.forEach((obj) => {
+        const { PROVINCIA, cantidad_detenidos } = obj;
+
+        if (!provinceData[PROVINCIA]) {
+          provinceData[PROVINCIA] = {
+            tipo: PROVINCIA,
+            cant: 0,
+            cant2: 0,
+          };
+        }
+
+        provinceData[PROVINCIA].cant++;
+        provinceData[PROVINCIA].cant2 += cantidad_detenidos;
+      });
+
+      let res = {
+        //* Estado inicial
+        cantObj: 0,
+        cantDetenidos: 0,
+        celularesSecuestrados: 0,
+        dispositivosDeAlm: 0,
+        dispositivosElectronicos: 0,
+        elementosNoDigitales: 0,
+        menores: 0,
+        notebooksSecuestradas: 0,
+        pcsSecuestradas: 0,
+        tabletsSecuestradas: 0,
+        triages: 0,
+      };
+
+      const provinceArray = Object.values(provinceData);
+      const tableRes = paisesArray.concat(provinceArray);
+
+      let cantObj = Number(docs.length); //* Saco cantidad de objetivos
+      res.cantObj = cantObj;
+      let ObjetivosAllanados = docs.filter(
+        (doc) => doc.objetivo_allanado.toUpperCase() === "SI"
+      ); //* Objetivos allanados
+      let porcentajeObjetivosCompletos = Math.floor(
+        (Number(ObjetivosAllanados.length) * 100) / cantObj
+      ); //* Saco porcentaje de objetivos
+      docs.filter((doc) => {
+        const {
+          cantidad_detenidos,
+          celulares_secuestrados,
+          dispositivos_de_almacenamiento,
+          dispositivos_electronicos,
+          elementos_no_digitales,
+          menores_de_edad,
+          notebooks_secuestradas,
+          pcs_secuestradas,
+          tablets_secuestradas,
+          triage,
+        } = doc; //* Destructuring
+        res.cantDetenidos += cantidad_detenidos;
+        res.celularesSecuestrados += celulares_secuestrados;
+        res.dispositivosDeAlm += dispositivos_de_almacenamiento;
+        res.dispositivosElectronicos += dispositivos_electronicos;
+        res.elementosNoDigitales += elementos_no_digitales;
+        res.menores += menores_de_edad;
+        res.notebooksSecuestradas += notebooks_secuestradas;
+        res.pcsSecuestradas += pcs_secuestradas;
+        res.tabletsSecuestradas += tablets_secuestradas;
+        triage === "SI" ? res.triages++ : null;
+      }); //* Saco cantidades
+      return {
+        ...state,
+        cantObj: cantObj,
+        tableData2: res,
+        tableData: tableRes,
+        porcentajeObjetivosCompletos: porcentajeObjetivosCompletos,
+      };
     },
   },
 });
