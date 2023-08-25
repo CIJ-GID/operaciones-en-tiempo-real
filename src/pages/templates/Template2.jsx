@@ -25,7 +25,7 @@ export const Template2 = () => {
       const data = [];
       for (const doc of snap.docs) {
         const docData = doc.data();
-        if (docData.GUID) {
+        if (docData.GUID || docData.CANT_OBJETIVOS) {
           data.push(docData);
         }
       }
@@ -58,17 +58,13 @@ export const Template2 = () => {
                 cant2: "DETENIDOS",
                 color: "text-principalTextColor font-bold",
               },
-              {
-                tipo: "Prov. Buenos Aires",
-                cant: "02",
-                cant2: "-",
-              },
+              ...data.tableData,
             ]}
           />
         </section>
         <section className="col-span-2 row-span-2 grid grid-cols-2 gap-4 p-2">
           <section className="col-span-1 ">
-            <TableWithBorderNoEven tableData={formatDataToTableData(data)} />
+            <TableWithBorderNoEven tableData={formatDataToTableData(data.tableData2)} />
           </section>
           <section className="col-span-1 flex flex-col items-center justify-between">
             <h3 className="text-center text-2xl uppercase text-principalTextColor">
