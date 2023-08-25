@@ -21,7 +21,7 @@ export const Template2 = () => {
   const data = useSelector((state) => state.data);
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(collection(db, "Op_RFA_III"), (snap) => {
+    const unsubscribe = onSnapshot(collection(db, "Op_RFA_II"), (snap) => {
       const data = [];
       for (const doc of snap.docs) {
         const docData = doc.data();
@@ -36,35 +36,6 @@ export const Template2 = () => {
       unsubscribe();
     };
   }, [dispatch]);
-
-  //! ESTO NO ANDA HAY QUE FIXEAR
-  //   const [provinciasData, setProvinciasData] = useState([]);
-
-  //   useEffect(() => {
-  //     const unsubscribe = onSnapshot(doc(db, "Op_RFA_III", "GeneralInfo"), async (snap) => {
-  //       const generalInfoData = snap.data();
-
-  //       const subcollectionPromises = Object.values(generalInfoData).map(
-  //         async (subcollectionRef) => {
-  //           const subcollectionSnapshot = await getDocs(
-  //             collection(db, subcollectionRef.path)
-  //           );
-  //           return subcollectionSnapshot.docs.map((doc) => doc.data());
-  //         }
-  //       );
-
-  //       const allSubcollectionData = await Promise.all(subcollectionPromises);
-  //       const flattenedData = allSubcollectionData.flat();
-
-  //       setProvinciasData(flattenedData);
-  //     });
-
-  //     return () => {
-  //       unsubscribe();
-  //     };
-  //   }, []);
-
-  //   console.log(provinciasData);
 
   return (
     <main className="grid h-screen grid-rows-5">

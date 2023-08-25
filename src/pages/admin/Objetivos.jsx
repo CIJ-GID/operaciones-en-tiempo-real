@@ -30,7 +30,7 @@ export const Objetivos = () => {
   const loadDb = async (data) => {
     try {
       for (const obj of data) {
-        await setDoc(doc(db, op.collectionName, obj.OBJ), {
+        await setDoc(doc(db, op.collectionName, obj.OBJETIVO), {
           ...obj,
           objetivo_allanado: "NO",
           cantidad_detenidos: 0,
@@ -44,7 +44,7 @@ export const Objetivos = () => {
           menores_de_edad: 0,
           triage: "NO",
         });
-        console.log(`Documento ${obj.OBJ} guardados exitosamente`);
+        console.log(`Documento ${obj.OBJETIVO} guardados exitosamente`);
       }
       console.log("Documentos guardados exitosamente");
     } catch (error) {
