@@ -71,7 +71,7 @@ const dataSlice = createSlice({
       const provinceArray = Object.values(provinceData);
       const tableRes = paisesArray.concat(provinceArray);
 
-      let cantObj = Number(docs.length); //* Saco cantidad de objetivos
+      let cantObj = Number(objetivos.length); //* Saco cantidad de objetivos
       res.cantObj = cantObj;
       let ObjetivosAllanados = docs.filter(
         (doc) => doc.objetivo_allanado.toUpperCase() === "SI"

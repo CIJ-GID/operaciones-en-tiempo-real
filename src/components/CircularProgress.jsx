@@ -5,12 +5,12 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 export const CircularProgress = ({ porcentajeObjetivosCompletos }) => {
   return (
     <CircularProgressbar
-      value={50}
-      text={"50%"}
+      value={porcentajeObjetivosCompletos}
+      text={`${porcentajeObjetivosCompletos}%`}
       strokeWidth={8}
       styles={buildStyles({
-        pathColor: porcentajeObjetivosCompletos > 0 ? "#68AD44" : "#6BBED0",
-        textColor: porcentajeObjetivosCompletos > 0 ? "#68AD44" : "#6BBED0",
+        pathColor: "#68AD44",
+        textColor: "#68AD44",
         trailColor: "#006473",
         strokeLinecap: "butt",
         pathTransitionDuration: 2,
