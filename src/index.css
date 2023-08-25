@@ -6,7 +6,7 @@
   *,
   *::after,
   *::before {
-    @apply font-display tracking-wide;
+    @apply font-display font-bold tracking-wide;
   }
 
   body {
