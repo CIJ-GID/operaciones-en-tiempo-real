@@ -1,8 +1,9 @@
 import React from "react";
+import { Controller } from "swiper/modules";
 
 export const TableWithBorderNoEven = ({ tableData }) => {
   return (
-    <table className="flex h-full w-full items-center justify-center text-left">
+    <table className="flex h-full w-full items-start justify-center text-left">
       <tbody className="w-full rounded-md">
         {tableData.map(({ tipo, cant, color }, index) => (
           <tr key={index} className="border-b-2 border-primary">
@@ -13,7 +14,7 @@ export const TableWithBorderNoEven = ({ tableData }) => {
             </td>
             <td className="w-full p-2">
               <span className={`text-gray-300 sm:text-sm 2xl:text-3xl ${color}`}>
-                {cant}
+                {tipo === "ALLANAMIENTOS" ? "" : parseInt(cant)}
               </span>
             </td>
           </tr>
@@ -25,7 +26,7 @@ export const TableWithBorderNoEven = ({ tableData }) => {
 
 export const TableWithEvenNoBorder = ({ tableData }) => {
   return (
-    <table className="flex h-full w-full items-center justify-center text-left">
+    <table className="flex h-full w-full items-start justify-center text-left">
       <tbody className="w-full rounded-md">
         {tableData.map(({ tipo, cant, cant2, color }, index) => (
           <tr key={index} className="even:bg-primary/50">

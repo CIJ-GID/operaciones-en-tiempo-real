@@ -41,7 +41,7 @@ export const Template2 = () => {
         <img src={logoMpf} />
         <span className="text-center text-3xl font-[200] text-white">
           OPERATIVO <br />
-          <strong className="font-[800]">RED FEDERAL EN ALERTA II</strong>
+          <strong className="font-[800]">ALIADOS POR LA INFANCIA</strong>
         </span>
         <img src={logoCij} className="z-10" />
         <img src={watermark} className="absolute -bottom-5  -right-10 h-full" />
@@ -51,7 +51,7 @@ export const Template2 = () => {
           <TableWithEvenNoBorder
             tableData={[
               {
-                tipo: "",
+                tipo: "REGION",
                 cant: "OBJETIVOS",
                 cant2: "DETENIDOS",
                 color: "text-principalTextColor font-bold",
@@ -64,7 +64,7 @@ export const Template2 = () => {
           <section className="col-span-1 ">
             <TableWithBorderNoEven tableData={formatDataToTableData(data.tableData2)} />
           </section>
-          <section className="col-span-1 flex flex-col items-center justify-between">
+          <section className="col-span-1 flex flex-col items-center justify-between p-4">
             <h3 className="text-center text-2xl uppercase text-principalTextColor">
               allanamientos en proceso
             </h3>

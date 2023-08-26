@@ -78,30 +78,33 @@ const dataSlice = createSlice({
       );
       //? Saco cantidades
       docs.filter((doc) => {
-        const {
-          cantidad_detenidos,
-          celulares_secuestrados,
-          dispositivos_de_almacenamiento,
-          dispositivos_electronicos,
-          elementos_no_digitales,
-          menores_de_edad,
-          notebooks_secuestradas,
-          pcs_secuestradas,
-          tablets_secuestradas,
-          triage,
-        } = doc; //* Destructuring
-        res.cantDetenidos += cantidad_detenidos;
-        res.celularesSecuestrados += celulares_secuestrados;
-        res.dispositivosDeAlm += dispositivos_de_almacenamiento;
-        res.dispositivosElectronicos += dispositivos_electronicos;
-        res.elementosNoDigitales += elementos_no_digitales;
-        res.menores += menores_de_edad;
-        res.notebooksSecuestradas += notebooks_secuestradas;
-        res.pcsSecuestradas += pcs_secuestradas;
-        res.tabletsSecuestradas += tablets_secuestradas;
-        triage === "SI" ? res.triages++ : null;
+        if (doc.GUID || doc.CANT_OBJETIVOS) {
+          const {
+            cantidad_detenidos,
+            celulares_secuestrados,
+            dispositivos_de_almacenamiento,
+            dispositivos_electronicos,
+            elementos_no_digitales,
+            menores_de_edad,
+            notebooks_secuestradas,
+            pcs_secuestradas,
+            tablets_secuestradas,
+            triage,
+          } = doc; //* Destructuring
+
+          res.cantDetenidos += cantidad_detenidos;
+          res.celularesSecuestrados += celulares_secuestrados;
+          res.dispositivosDeAlm += dispositivos_de_almacenamiento;
+          res.dispositivosElectronicos += dispositivos_electronicos;
+          res.elementosNoDigitales += elementos_no_digitales;
+          res.menores += menores_de_edad;
+          res.notebooksSecuestradas += notebooks_secuestradas;
+          res.pcsSecuestradas += pcs_secuestradas;
+          res.tabletsSecuestradas += tablets_secuestradas;
+          triage === "SI" ? res.triages++ : null;
+        }
       });
-      console.log(generalInfo);
+
       return {
         ...state,
         cantObj: cantObj,
