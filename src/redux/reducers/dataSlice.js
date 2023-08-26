@@ -16,45 +16,19 @@ const dataSlice = createSlice({
     dispositivosDeAlm: 0,
     elementosNoDigitales: 0,
     tableData: [],
-    tableData2: {},
+    tableData2: [],
+    generalInfo: {},
   },
   reducers: {
     updateData: (state, action) => {
       const docs = action.payload;
-
+      const generalInfo = docs.filter((d) => d.collectionName);
       const paises = docs.filter((d) => d.CANT_OBJETIVOS);
       const objetivos = docs.filter((d) => d.GUID);
-
       const paisesArray = [];
-
-      paises.map((p) => {
-        paisesArray.push({
-          tipo: p.OBJETIVO,
-          cant: p.CANT_OBJETIVOS,
-          cant2: p.cantidad_detenidos,
-        });
-      });
-
-      // Group data by province and calculate sums
       const provinceData = {};
-
-      objetivos.forEach((obj) => {
-        const { PROVINCIA, cantidad_detenidos } = obj;
-
-        if (!provinceData[PROVINCIA]) {
-          provinceData[PROVINCIA] = {
-            tipo: PROVINCIA,
-            cant: 0,
-            cant2: 0,
-          };
-        }
-
-        provinceData[PROVINCIA].cant++;
-        provinceData[PROVINCIA].cant2 += cantidad_detenidos;
-      });
-
       let res = {
-        //* Estado inicial
+        //? Estado inicial
         cantObj: 0,
         cantDetenidos: 0,
         celularesSecuestrados: 0,
@@ -68,17 +42,41 @@ const dataSlice = createSlice({
         triages: 0,
       };
 
+      paises.map((p) => {
+        paisesArray.push({
+          tipo: p.OBJETIVO,
+          cant: p.CANT_OBJETIVOS,
+          cant2: p.cantidad_detenidos,
+        });
+      });
+      //? separa provincias y suma
+      objetivos.forEach((obj) => {
+        const { PROVINCIA, cantidad_detenidos } = obj;
+        if (!provinceData[PROVINCIA]) {
+          provinceData[PROVINCIA] = {
+            tipo: PROVINCIA,
+            cant: 0,
+            cant2: 0,
+          };
+        }
+        provinceData[PROVINCIA].cant++;
+        provinceData[PROVINCIA].cant2 += cantidad_detenidos;
+      });
+
       const provinceArray = Object.values(provinceData);
       const tableRes = paisesArray.concat(provinceArray);
-
-      let cantObj = Number(objetivos.length); //* Saco cantidad de objetivos
+      //? Saco cantidad de objetivos
+      let cantObj = Number(objetivos.length);
       res.cantObj = cantObj;
+      //? Objetivos allanados
       let ObjetivosAllanados = docs.filter(
-        (doc) => doc.objetivo_allanado.toUpperCase() === "SI"
-      ); //* Objetivos allanados
+        (doc) => doc.objetivo_allanado?.toUpperCase() === "SI"
+      );
+      //? Saco porcentaje de objetivos
       let porcentajeObjetivosCompletos = Math.floor(
         (Number(ObjetivosAllanados.length) * 100) / cantObj
-      ); //* Saco porcentaje de objetivos
+      );
+      //? Saco cantidades
       docs.filter((doc) => {
         const {
           cantidad_detenidos,
@@ -102,13 +100,15 @@ const dataSlice = createSlice({
         res.pcsSecuestradas += pcs_secuestradas;
         res.tabletsSecuestradas += tablets_secuestradas;
         triage === "SI" ? res.triages++ : null;
-      }); //* Saco cantidades
+      });
+      console.log(generalInfo);
       return {
         ...state,
         cantObj: cantObj,
         tableData2: res,
         tableData: tableRes,
         porcentajeObjetivosCompletos: porcentajeObjetivosCompletos,
+        generalInfo: { ...generalInfo[0] },
       };
     },
   },

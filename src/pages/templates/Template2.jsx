@@ -25,9 +25,7 @@ export const Template2 = () => {
       const data = [];
       for (const doc of snap.docs) {
         const docData = doc.data();
-        if (docData.GUID || docData.CANT_OBJETIVOS) {
-          data.push(docData);
-        }
+        data.push(docData);
       }
       dispatch(updateData(data));
     });
@@ -79,9 +77,9 @@ export const Template2 = () => {
               <TableSimple
                 textSize={"text-xs"}
                 tableData={[
-                  { tipo: "REGISTROS", cant: 11500 },
-                  { tipo: "DIRECCIONES IP", cant: 11500 },
-                  { tipo: "ARCHIVOS CSAM", cant: 11500 },
+                  { tipo: "REGISTROS", cant: data.generalInfo.REGISTROS },
+                  { tipo: "DIRECCIONES IP", cant: data.generalInfo.DIRECCIONES_IP },
+                  { tipo: "ARCHIVOS CSAM", cant: data.generalInfo.ARCHIVOS_CSAM },
                 ]}
               />
             </div>
