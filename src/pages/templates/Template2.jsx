@@ -89,7 +89,7 @@ export const Template2 = () => {
         </section>
         <section className="col-span-1 row-span-3 border-l-2 border-primary p-4">
           <div className="h-full w-full">
-            <video loop autoPlay className="h-full w-full rounded-md object-cover">
+            <video loop autoPlay className="h-full w-full rounded-md object-scale-down">
               <source src={map} type="video/mp4" />
             </video>
           </div>
