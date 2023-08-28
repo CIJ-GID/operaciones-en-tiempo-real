@@ -37,7 +37,7 @@ export function formatDataToTableData(data) {
     celularesSecuestrados: "Celulares",
     dispositivosDeAlm: "Disp. de Almacenamiento",
     dispositivosElectronicos: "Disp. Electrónicos",
-    elementosNoDigitales: "NO Digitales",
+    elementosNoDigitales: "Elementos OkiNO Digitales",
     menores: "Menores",
     notebooksSecuestradas: "Notebooks",
     pcsSecuestradas: "PCs",
@@ -57,7 +57,7 @@ export function formatDataToTableData(data) {
     const mappedKey = propertyMappings[key] || key; // Usar el nombre mapeado o el original
     const newObj = {
       tipo: mappedKey,
-      cant:     data[key],
+      cant: data[key],
     };
 
     if (isFirstObject) {
