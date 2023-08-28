@@ -37,7 +37,7 @@ export function formatDataToTableData(data) {
     celularesSecuestrados: "Celulares",
     dispositivosDeAlm: "Disp. de Almacenamiento",
     dispositivosElectronicos: "Disp. Electrónicos",
-    elementosNoDigitales: "Elementos OkiNO Digitales",
+    elementosNoDigitales: "Elementos NO Digitales",
     menores: "Menores",
     notebooksSecuestradas: "Notebooks",
     pcsSecuestradas: "PCs",
