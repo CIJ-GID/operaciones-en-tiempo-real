@@ -40,7 +40,7 @@ export const Template2 = () => {
       <section className="relative row-span-1 flex items-center justify-between overflow-hidden bg-primary p-8">
         <img src={logoMpf} />
         <span className="text-center text-3xl font-[200] text-white">
-          OPERATIVO <br />
+          OPERACION <br />
           <strong className="font-[800]">ALIADOS POR LA INFANCIA</strong>
         </span>
         <img src={logoCij} className="z-10" />
@@ -91,7 +91,7 @@ export const Template2 = () => {
               loop
               autoPlay
               controls
-              className="h-full w-full rounded-md object-scale-down"
+              className="h-full w-full rounded-md object-contain"
             >
               <source src={map} type="video/mp4" />
             </video>
