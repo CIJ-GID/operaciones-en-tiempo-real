@@ -17,6 +17,7 @@ export default {
       black: colors.black,
       gray: colors.gray,
       slate: colors.slate,
+      red: colors.red,
     },
     screens: {
       xs: "200px", //Celular

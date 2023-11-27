@@ -19,7 +19,7 @@ export const Template1 = () => {
   const dispatch = useDispatch();
 
   //! Logica para actualizar datos en tiempo real
-  onSnapshot(collection(db, import.meta.env.VITE_FIREBASE_DB_NAME), (snap) => {
+  onSnapshot(collection(db, "prueba"), (snap) => {
     const data = [];
     snap.forEach((doc) => {
       data.push(doc.data());

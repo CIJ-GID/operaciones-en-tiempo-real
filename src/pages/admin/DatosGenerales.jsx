@@ -6,11 +6,14 @@ import { motion } from "framer-motion";
 import logoCij from "../../assets/logoCij.png";
 import logoMpf from "../../assets/logoMpf.png";
 import { db, setDoc, doc } from "../../database/db";
+import { Loader } from "../../components/Loader";
 
 export const DatosGenerales = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState(false);
   const [localOperation, setLocalOperation] = useState({
     nombre: "",
     collectionName: "",
@@ -30,8 +33,16 @@ export const DatosGenerales = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await setDoc(doc(db, localOperation.collectionName, "GeneralInfo"), localOperation);
-    navigate("/2");
+    setLoading(true);
+    try {
+      await setDoc(doc(db, localOperation.collectionName, "GeneralInfo"), localOperation);
+      navigate("/2");
+    } catch (e) {
+      alert("Hubo un error. Intantalo de nuevo");
+      setErrors(true);
+      console.log(e);
+    }
+    setLoading(false);
   };
 
   return (
@@ -41,6 +52,7 @@ export const DatosGenerales = () => {
       transition={{ type: "tween", duration: 0.5 }}
       className="mainContainer toolsBg"
     >
+      {loading && <Loader />}
       <section className=" flex h-[80%] w-[80%] flex-col items-center rounded-md border-2 border-primary bg-base shadow-2xl">
         <div className="flex w-full items-center justify-between border-b-2 border-primary p-6">
           <h2>Configuración</h2>
@@ -57,6 +69,7 @@ export const DatosGenerales = () => {
                 value={localOperation.nombre}
                 onChange={handleOnChange}
                 name="nombre"
+                className={`${errors && "!border-red-500"}`}
               />
             </div>
             <div className="flex flex-col">
@@ -67,6 +80,7 @@ export const DatosGenerales = () => {
                 value={localOperation.collectionName}
                 onChange={handleOnChange}
                 name="collectionName"
+                className={`${errors && "!border-red-500"}`}
               />
             </div>
           </form>

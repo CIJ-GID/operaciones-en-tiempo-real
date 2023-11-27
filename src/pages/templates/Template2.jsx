@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateData } from "../../redux/reducers/dataSlice";
-import { onSnapshot, collection, doc, getDocs } from "firebase/firestore";
+import { onSnapshot, collection } from "firebase/firestore";
 import { db } from "../../database/db";
 import map from "../../assets/MAPA.mp4";
 import logoCij from "../../assets/logoCij.png";
@@ -19,6 +19,10 @@ import { formatDataToTableData } from "../../helpers";
 export const Template2 = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.data);
+
+  /*
+!   	Hay que armar logica para subir logos a firebase y recuperarlos. Tambien pensar como seleccionar la DB dinamicamente. Titulo tambien
+*/
 
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, "Op_RFA_II"), (snap) => {

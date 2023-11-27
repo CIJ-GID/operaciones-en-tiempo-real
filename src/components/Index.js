@@ -7,3 +7,4 @@ export { RadarChartComponent } from "./RadarChartComponent";
 export { RadialBarChartComponent } from "./RadialBarChartComponent";
 export { TableWithBorderNoEven, TableWithEvenNoBorder, TableSimple } from "./Tables";
 export { SwiperComponent } from "./SwiperComponent";
+export { Loader } from "./Loader";
