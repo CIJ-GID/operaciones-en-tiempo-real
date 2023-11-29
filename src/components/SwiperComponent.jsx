@@ -4,23 +4,29 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { getImages } from "../database/db"; // Importa la función getImages desde tu db.js
+import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
 
 export const SwiperComponent = () => {
   const [imageURLs, setImageURLs] = useState([]);
-
+  
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const urls = await getImages();
-        setImageURLs(urls);
-      } catch (error) {
-        console.error("Error al obtener URLs de imágenes:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
+    const storage = getStorage();
+    const storageRef = ref(storage, "images"); // Sin la barra inclinada al final
+  
+    
+    // Obtén la lista de archivos en la carpeta
+    listAll(storageRef)
+    .then((res) => {
+      const promises = res.items.map((item) => getDownloadURL(item));
+      return Promise.all(promises);
+    })
+    .then((urls) => {
+      setImageURLs(urls);
+    })
+    .catch((error) => {
+      console.error("Error al obtener URLs de imágenes:", error.code, error.message);
+    });
+}, []);
 
   return (
     <Swiper

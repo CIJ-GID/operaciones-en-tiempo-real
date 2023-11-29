@@ -24,20 +24,23 @@ export const Template2 = () => {
 !   	Hay que armar logica para subir logos a firebase y recuperarlos. Tambien pensar como seleccionar la DB dinamicamente. Titulo tambien
 */
 
-  useEffect(() => {
-    const unsubscribe = onSnapshot(collection(db, "Op_RFA_II"), (snap) => {
-      const data = [];
-      for (const doc of snap.docs) {
-        const docData = doc.data();
-        data.push(docData);
-      }
-      dispatch(updateData(data));
-    });
+useEffect(() => {
+  const unsubscribe = onSnapshot(collection(db, "Op_RFA_II"), (snap) => {
+    const data = [];
+    for (const doc of snap.docs) {
+      const docData = doc.data();
+      data.push(docData);
+    }
+    dispatch(updateData(data));
+  }).catch((error) => {
+    console.error("Error fetching data:", error);
+  });
 
-    return () => {
-      unsubscribe();
-    };
-  }, [dispatch]);
+  return () => {
+    unsubscribe();
+  };
+}, [dispatch]);
+
 
   return (
     <main className="grid h-screen grid-rows-5">
