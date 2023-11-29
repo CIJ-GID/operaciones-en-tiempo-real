@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { images } from "../assets/fuerzas";
+import { getImages } from "../database/db"; // Importa la función getImages desde tu db.js
 
 export const SwiperComponent = () => {
+  const [imageURLs, setImageURLs] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const urls = await getImages();
+        setImageURLs(urls);
+      } catch (error) {
+        console.error("Error al obtener URLs de imágenes:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <Swiper
       slidesPerView={4}
@@ -25,9 +40,9 @@ export const SwiperComponent = () => {
         },
       }}
     >
-      {images.map((img, index) => (
+      {imageURLs.map((url, index) => (
         <SwiperSlide key={index} className="swiperSlide">
-          <img src={img} className="h-auto w-full" />
+          <img src={url} className="h-auto w-full" alt={`Slide ${index}`} />
         </SwiperSlide>
       ))}
     </Swiper>

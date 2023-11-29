@@ -63,7 +63,7 @@ export const Objetivos = () => {
         <div className="flex w-full items-center justify-between border-b-2 border-primary p-6">
           <h2>Configuración</h2>
           <h1>OBJETIVOS</h1>
-          <h2>Paso 2/3</h2>
+          <h2>Paso 3/4</h2>
         </div>
         <div className="grid h-full w-full grid-cols-2 gap-12 p-4 px-12">
           {/* <section className="w-full outline"></section> */}
@@ -74,7 +74,7 @@ export const Objetivos = () => {
               jsonData && "border-solid border-success"
             } place-content-center place-items-center rounded-md border-2 border-dashed border-primary/50 bg-containers transition hover:cursor-pointer hover:border-solid hover:bg-primary/10`}
           >
-            <h3 className="transition group-hover:text-white/50">DROP EXCEL HERE</h3>
+            <h3 className="transition group-hover:text-white/50">Tira el excel aqui</h3>
           </section>
         </div>
         <div className="my-4">
@@ -92,7 +92,7 @@ export const Objetivos = () => {
               }
             }}
           >
-            SIGUENTE <strong>3/3</strong>
+            SIGUENTE 
           </button>
         </div>
       </section>

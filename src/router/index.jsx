@@ -9,6 +9,7 @@ import {
   Login,
   Root,
   DatosGenerales,
+  Carrucel,
   Objetivos,
 } from "../pages/Index.js";
 import { handleCheckUser } from "../helpers/index";
@@ -37,6 +38,10 @@ const Router = () => {
         },
         {
           path: "/2",
+          element: <Carrucel />,
+        },
+        {
+          path: "/3",
           element: <Objetivos />,
         },
       ],
