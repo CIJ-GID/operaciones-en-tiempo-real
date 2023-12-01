@@ -45,7 +45,7 @@ export const Template2 = () => {
         <img src={logoMpf} />
         <span className="text-center text-3xl font-[200] text-white">
           OPERACION <br />
-          <strong className="font-[800]">TEST1</strong>
+          <strong className="font-[800]">ALIADOS POR LA INFANCIA II</strong>
         </span>
         <img src={logoCij} className="z-10" />
         <img src={watermark} className="absolute -bottom-5  -right-10 h-full" />
