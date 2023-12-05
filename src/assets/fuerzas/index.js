@@ -14,6 +14,7 @@ import logo13 from "./Logo_policia_stafe.png";
 import logo14 from "./Logo_policia_tucu.png";
 import logo15 from "./Logo_policia_sanjuan.png";
 import logo16 from "./Logo_policia_stgoestero.png";
+import logo17 from "./Logo_prefectura.png";
 
 export const images = [
   logo1,
@@ -32,4 +33,5 @@ export const images = [
   logo14,
   logo15,
   logo16,
+  logo17,
 ];
