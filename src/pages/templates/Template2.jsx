@@ -25,7 +25,7 @@ export const Template2 = () => {
 */
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(collection(db, "OP_APLI_III"), (snap) => {
+    const unsubscribe = onSnapshot(collection(db, "OP_APLI_II"), (snap) => {
       const data = [];
       for (const doc of snap.docs) {
         const docData = doc.data();
