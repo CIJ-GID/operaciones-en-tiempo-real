@@ -7,6 +7,7 @@ import logo6 from "./Logo_policia_salta.png";
 import logo7 from "./Logo_prefectura.png";
 import logo8 from "./Logo_policia_tierradelfuego.png";
 
+
 export const images = [
   logo1,
   logo2,
