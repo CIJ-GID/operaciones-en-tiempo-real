@@ -5,7 +5,7 @@ import logo4 from "./Logo_policia_cordoba.png";
 import logo5 from "./Logo_policia_federal.png";
 import logo6 from "./Logo_policia_salta.png";
 import logo7 from "./Logo_prefectura.png";
-import logo8 from "./Logo_policia_tierradelfuego";
+import logo8 from "./Logo_policia_tierradelfuego.png";
 
 export const images = [
   logo1,
