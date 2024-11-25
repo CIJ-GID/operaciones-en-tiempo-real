@@ -89,11 +89,6 @@ export const Template2 = () => {
             </div>
           </section>
         </section>
-        <section className="col-span-1 row-span-3 border-l-2 border-primary p-4">
-          <div className="h-full w-full">
-            
-          </div>
-        </section>
         <section className="col-span-2 row-span-1">
           <SwiperComponent />
         </section>
