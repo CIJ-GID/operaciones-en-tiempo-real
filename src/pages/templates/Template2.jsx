@@ -97,7 +97,7 @@ export const Template2 = () => {
               controls
               className="h-full w-full rounded-md object-contain"
             >
-              <!-- source src={map} type="video/mp4" / -->
+              
             </video>
           </div>
         </section>
