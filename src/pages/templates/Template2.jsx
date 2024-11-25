@@ -25,7 +25,7 @@ export const Template2 = () => {
 */
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(collection(db, "OP_APLI_III"), (snap) => {
+    const unsubscribe = onSnapshot(collection(db, "Op_APLI_IV"), (snap) => {
       const data = [];
       for (const doc of snap.docs) {
         const docData = doc.data();
@@ -45,7 +45,7 @@ export const Template2 = () => {
         <img src={logoMpf} />
         <span className="text-center text-3xl font-[200] text-white">
           OPERACION <br />
-          <strong className="font-[800]">ALIADOS POR LA INFANCIA III</strong>
+          <strong className="font-[800]">ALIADOS POR LA INFANCIA IV</strong>
         </span>
         <img src={logoCij} className="z-10" />
         <img src={watermark} className="absolute -bottom-5  -right-10 h-full" />
