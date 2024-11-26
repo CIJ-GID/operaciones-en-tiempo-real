@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateData } from "../../redux/reducers/dataSlice";
 import { onSnapshot, collection } from "firebase/firestore";
 import { db } from "../../database/db";
-import map from "../../assets/MAPA_v7.mp4";
+import map from "../../assets/MAPA_v8.mp4";
 import logoCij from "../../assets/logoCij.png";
 import logoMpf from "../../assets/logoMpf.png";
 import watermark from "../../assets/watermark.png";
