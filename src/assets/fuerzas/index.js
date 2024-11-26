@@ -13,5 +13,6 @@ export const images = [
   logo2,
   logo3,
   logo5,
+  logo2,
   logo7,
 ];
