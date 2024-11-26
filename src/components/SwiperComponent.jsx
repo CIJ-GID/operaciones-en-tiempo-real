@@ -20,7 +20,7 @@ export const SwiperComponent = () => {
       className="h-full w-full"
       breakpoints={{
         1900: {
-          slidesPerView: 6,
+          slidesPerView: 4,
           spaceBetween: 15,
         },
       }}
