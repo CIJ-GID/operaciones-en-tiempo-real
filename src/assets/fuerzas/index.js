@@ -5,7 +5,7 @@ import logo4 from "./Logo_policia_cordoba.png";
 import logo5 from "./Logo_policia_federal.png";
 import logo6 from "./Logo_policia_salta.png";
 import logo7 from "./Logo_prefectura.png";
-import logo8 from "./Logo_policia_tierradelfuego.png";
+import logo8 from "./Logo_policia_tdf.png";
 import logo9 from "./Logo_policia_bsas.png";
 import logo10 from "./Logo_policia_entrerios.png";
 import logo11 from "./Logo_policia_formosa.png";
