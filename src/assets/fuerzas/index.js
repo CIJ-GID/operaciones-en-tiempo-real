@@ -24,7 +24,6 @@ export const images = [
   logo3,
   logo9,
   logo5,
-  logo17,
   logo7,
   logo9
 ];
