@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateData } from "../../redux/reducers/dataSlice";
 import { onSnapshot, collection } from "firebase/firestore";
 import { db } from "../../database/db";
-import map from "../../assets/MAPA_2025_v1_small.mp4";
+import map from "../../assets/MAPA_APLI_VI.mp4";
 import logoCij from "../../assets/logoCij.png";
 import logoMpf from "../../assets/logoMpf.png";
 import watermark from "../../assets/watermark.png";
@@ -25,7 +25,7 @@ export const Template2 = () => {
 */
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(collection(db, "Op_APLI_V"), (snap) => {
+    const unsubscribe = onSnapshot(collection(db, "Op_APLI_VI"), (snap) => {
       const data = [];
       for (const doc of snap.docs) {
         const docData = doc.data();
@@ -45,7 +45,7 @@ export const Template2 = () => {
         <img src={logoMpf} />
         <span className="text-center text-3xl font-[200] text-white">
           OPERACION <br />
-          <strong className="font-[800]">ALIADOS POR LA INFANCIA V</strong>
+          <strong className="font-[800]">ALIADOS POR LA INFANCIA VI</strong>
         </span>
         <img src={logoCij} className="z-10" />
         <img src={watermark} className="absolute -bottom-5  -right-10 h-full" />
