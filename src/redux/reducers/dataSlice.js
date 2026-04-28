@@ -76,6 +76,11 @@ const dataSlice = createSlice({
       let porcentajeObjetivosCompletos = Math.round(
         (Number(ObjetivosAllanados.length) * 100) / cantObj
       );
+      console.log({
+  completos: ObjetivosAllanados.length,
+  total: cantObj,
+  exacto: (ObjetivosAllanados.length * 100) / cantObj,
+});
       //? Saco cantidades
       docs.filter((doc) => {
         if (doc.GUID || doc.CANT_OBJETIVOS) {
