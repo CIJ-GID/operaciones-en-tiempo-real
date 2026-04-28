@@ -73,7 +73,7 @@ const dataSlice = createSlice({
         (doc) => doc.objetivo_allanado?.toUpperCase() === "SI"
       );
       //? Saco porcentaje de objetivos
-      let porcentajeObjetivosCompletos = Math.floor(
+      let porcentajeObjetivosCompletos = Math.round(
         (Number(ObjetivosAllanados.length) * 100) / cantObj
       );
       //? Saco cantidades
