@@ -72,6 +72,14 @@ const dataSlice = createSlice({
       let ObjetivosAllanados = docs.filter(
         (doc) => doc.objetivo_allanado?.toUpperCase() === "SI"
       );
+      
+      console.log("Objetivos allanados:", ObjetivosAllanados);
+console.log("Cantidad:", ObjetivosAllanados.length);
+
+      docs.forEach((doc, i) => {
+  console.log(i, doc.objetivo_allanado);
+});
+      
       //? Saco porcentaje de objetivos
       let porcentajeObjetivosCompletos = Math.round(
         (Number(ObjetivosAllanados.length) * 100) / cantObj
