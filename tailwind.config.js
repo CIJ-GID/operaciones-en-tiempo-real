@@ -7,10 +7,10 @@ export default {
   theme: {
     colors: {
       base: "#1C1C1C",
-      primary: "#006473",
-      darkPrimary: "#014A5B",
-      principalTextColor: "#6BBED0",
-      enfasis: "#005F71",
+      primary: "#008a3f",
+      darkPrimary: "#0e562f",
+      principalTextColor: "#4cc583",
+      enfasis: "rgb(110, 187, 145)",
       containers: "#262626",
       success: "#287300",
       white: colors.white,
