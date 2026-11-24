@@ -21,10 +21,8 @@ import logo19 from "./Logo_policia_santiago.png";
 export const images = [
   logo2,
   logo3,
-  logo9,
   logo5,
   logo7,
-  logo9,
   logo5,
   logo7,
 ];

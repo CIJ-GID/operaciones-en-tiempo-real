@@ -11,7 +11,7 @@ export const CircularProgress = ({ porcentajeObjetivosCompletos }) => {
       styles={buildStyles({
         pathColor: "#68AD44",
         textColor: "#68AD44",
-        trailColor: "#006473",
+        trailColor: "#00733D",
         strokeLinecap: "butt",
         pathTransitionDuration: 2,
         textSize: "20px",
