@@ -19,6 +19,7 @@ import logo18 from "./Logo_policia_santacruz.png";
 import logo19 from "./Logo_policia_santiago.png";
 import logo20 from "./NCMEC.png";
 import logo21 from "./UNODC.png";
+import logo22 from "./ICMEC.png";
 
 export const images = [
   logo2,
@@ -27,10 +28,12 @@ export const images = [
   logo7,
   logo20,
   logo21,
+  logo22,
   logo2,
   logo3,
   logo5,
   logo7,
   logo20,
-  logo21
+  logo21,
+  logo22
 ];
