@@ -17,14 +17,20 @@ import logo16 from "./Logo_policia_tucuman.png";
 import logo17 from "./Logo_policia_sanjuan.png";
 import logo18 from "./Logo_policia_santacruz.png";
 import logo19 from "./Logo_policia_santiago.png";
+import logo20 from "./NCMEC.png";
+import logo21 from "./UNODC.png";
 
 export const images = [
   logo2,
   logo3,
   logo5,
   logo7,
+  logo20,
+  logo21,
   logo2,
   logo3,
   logo5,
   logo7,
+  logo20,
+  logo21
 ];
