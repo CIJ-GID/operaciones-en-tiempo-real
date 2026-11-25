@@ -48,7 +48,7 @@ export const Template2 = () => {
           <strong className="font-[800]">ALIADOS POR LA INFANCIA VII</strong>
         </span>
         <img src={logoCij} className="z-10" />
-        <img src={watermark} className="absolute -bottom-5  -right-10 h-full" />
+        <!-- img src={watermark} className="absolute -bottom-5  -right-10 h-full" / -->
       </section>
       <section className="row-span-4 grid h-full grid-cols-4 grid-rows-3  gap-10 bg-darkPrimary p-8">
         <section className="col-span-1 row-span-3 border-r-2 border-primary p-4">
